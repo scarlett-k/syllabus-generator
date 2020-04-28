@@ -11,7 +11,7 @@ class Controller {
         $this->_f3 = $f3;
     }
 
-    public function home()
+    function home()
     {
         $view = new Template();
         echo $view->render("views/form.html");
