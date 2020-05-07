@@ -2,7 +2,9 @@
     color: red;
     visibility: hidden;
 }
-
+.time-pickers{
+    margin-bottom: 20px;
+}
 fieldset{
     padding: 1em;
     border: 1px solid black;
