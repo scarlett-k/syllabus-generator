@@ -13,6 +13,7 @@ class syllabus
 {
     private $_firstname;
     private $_lastname;
+    private $_email;
     private $_office;
     private $_officeHours;
     private $_course;
@@ -22,11 +23,29 @@ class syllabus
     private $_textbook;
     private $_materials;
 
-    function __construct($_firstname, $_lastname)
+    /**
+     * syllabus constructor.
+     * @param $_firstname
+     * @param $_lastname
+     * @param $_office
+     * @param $_officeHours
+     * @param $_course
+     * @param $_meetingTimes
+     * @param $_location
+     */
+    public function __construct($_firstname, $_lastname, $_email, $_office, $_officeHours,
+                                $_course, $_meetingTimes, $_location)
     {
         $this->_firstname = $_firstname;
         $this->_lastname = $_lastname;
+        $this->_email = $_email;
+        $this->_office = $_office;
+        $this->_officeHours = $_officeHours;
+        $this->_course = $_course;
+        $this->_meetingTimes = $_meetingTimes;
+        $this->_location = $_location;
     }
+
 
     /**
      * @return mixed
@@ -58,6 +77,22 @@ class syllabus
     public function setLastname($lastname)
     {
         $this->_lastname = $lastname;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEmail()
+    {
+        return $this->_email;
+    }
+
+    /**
+     * @param mixed $email
+     */
+    public function setEmail($email)
+    {
+        $this->_email = $email;
     }
 
     /**

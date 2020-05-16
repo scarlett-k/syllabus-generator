@@ -17,9 +17,10 @@
   ],
   "require":
   {
-    "bcosca/fatfree-core": "dev-master"
+    "bcosca/fatfree-core": "dev-master",
+    "ext-ctype": "*"
   },
   "autoload": {
-    "classmap": ["controller/", "model/"]
+    "classmap": ["controller/", "model/", "classes"]
   }
 }

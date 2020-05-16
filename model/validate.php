@@ -10,12 +10,31 @@
  */
 class Validate
 {
+    private $_f3;
+
+    public function __construct($f3)
+    {
+        $this->_f3 = $f3;
+
+    }
+
+    public function validInfo() {
+        $this->validName($_POST['firstName']);
+        $this->validName($_POST['lastName']);
+        $this->validEmail($_POST['email']);
+        $this->validOfficeHours($_POST['office-hrs']);
+        $this->validOfficeHours($_POST['meeting-hrs']);
+        $this->validClass($_POST['course']);
+        $this->validLocation($_POST['location']);
+        $this->validISBN($_POST['isbn']);
+    }
+    
     /**
-     * @param $String
+     * @param $string
      * @return bool
      */
-    function validString($String){
-        return ctype_alpha($String) AND ($String !="");
+    function validName($string){
+        return ctype_alpha($string) AND ($string !="");
     }
 
     /**
@@ -35,8 +54,28 @@ class Validate
         return filter_var($email, FILTER_VALIDATE_EMAIL);
     }
 
+    /**
+     * @param $hour
+     * @return bool
+     */
     function validOfficeHours($hour){
         return ctype_digit($hour);
+    }
+
+    /**
+     * @param $string
+     * @return bool
+     */
+    function validClass($string){
+        return preg_match("/^[a-zA-Z0-9\s.(&)]*$/", $string);
+    }
+
+    /**
+     * @param $string
+     * @return bool
+     */
+    function validLocation($string){
+        return preg_match("/^[a-zA-Z0-9\s.-]*$/", $string);
     }
 
     function validISBN($ISBN){
