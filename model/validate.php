@@ -59,8 +59,10 @@ class Validate
      * @return bool
      */
     function validPhone($phone){
-        return preg_match("/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/", $phone)||
-               preg_match("/^[0-9]{10}$/", $phone);
+        if (preg_match("/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/", $phone)||
+            preg_match("/^[0-9]{10}$/", $phone)) {
+            $this->_errors['phone'] = "please enter a phone number.";
+        }
     }
 
     /**

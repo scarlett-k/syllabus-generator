@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en">
 <head>
-   <!-- header -->
+    <!-- header -->
     <include href="views/header.html">
-    <title>GRC Syllabus Generator</title>
-</head>
+        <title>GRC Syllabus Generator</title>
+        </head>
 <body>
 <img src="images/logo.png" alt = "GRC Logo" style="float: left;  margin-bottom: 30px; margin-right: 20px" />
 <h1> GRC Syllabus Generator</h1>
@@ -17,40 +17,38 @@
                     <div class="form-group">
                         <label for="firstName">First name:</label>
                         <input type="text" class="form-control"
-                               id="firstName" name="firstName">
-                        <span class="err" id="err-fname">
-                Please enter a first name
-            </span>
+                               id="firstName" name="firstName" value = "{{ @firstname }}">
+                        <check if="{{ @errors['firstname'] }}">
+                            <span class="err">{{ @errors['firstname'] }}</span>
+                        </check>
                     </div>
                     <div class="form-group">
                         <label for="lastName">Last name:</label>
                         <input type="text" class="form-control"
-                               id="lastName" name="lastName">
-                        <span class="err" id="err-lname">
-                Please enter a last name
-            </span>
+                               id="lastName" name="lastName" value = "{{ @lastname }}">
+                        <check if="{{ @errors['lastname'] }}">
+                            <span class="err">{{ @errors['lastname'] }}</span>
+                        </check>
                     </div>
                     <div class="form-group">
                         <label for="office">Phone: </label>
                         <input type="tel" class="form-control"
-                               id="phone" name="phone">
-                        <span class="err" id="err-phone">
-                Please enter a phone number
-            </span>
+                               id="phone" name="phone" value = "{{ @phone }}" >
+                        <check if="{{ @errors['phone'] }}">
+                            <span class="err">{{ @errors['phone'] }}</span>
+                        </check>
                     </div>
                     <div class="form-group">
                         <label for="office">Office location: </label>
                         <input type="text" class="form-control"
-                               id="office" name="office">
-                        <span class="err" id="err-office">
-                Please enter an office location
-            </span>
+                               id="office" name="office" value = "{{ @office-location }}">
+                        <check if="{{ @errors['office-location'] }}">
+                            <span class="err">{{ @errors['office-location'] }}</span>
+                        </check>
                     </div>
                     <div class="form-group">
                         <label>Office Hours:</label>
                         <div class="form-check time-pickers">
-
-
                             <div class="md-form md-outline form-inline">
                                 <input class="form-check-input" type="checkbox"
                                        value="mon" id="mon"
@@ -114,15 +112,15 @@
                                 <input type="time"   class="form-control" placeholder="Select time">
                             </div>
                         </div>
-                        <span class="err" id="err-office-hrs">Please enter office times.</span>
+
                     </div>
                     <div class="form-group">
                         <label for="email">Instructor e-mail:</label>
                         <input type="text" class="form-control"
-                               id="email" name="email">
-                        <span class="err" id="err-email">
-                Please enter a valid email address
-            </span>
+                               id="email" name="email" value="{{ @email }}">
+                        <check if="{{ @errors['email'] }}">
+                            <span class="err">{{ @errors['email'] }}</span>
+                        </check>
                     </div>
                 </fieldset>
             </div>
@@ -130,111 +128,114 @@
                 <fieldset class="form-group mt-5">
                     <legend>Course Information</legend>
                     <div class = "row">
-                    <div class="col-sm">
-                        <label for="courseprefix">Course Prefix:</label>
-                        <select id="courseprefix" name="courseprefix" title="Choose a Course Prefix">
-                            <option value="-1">All prefixes…</option>
-                            <option selected="selected" value="A SIM">A SIM</option>
-                            <option value="AAM">AAM</option>
-                            <option value="ACCT">ACCT</option>
-                            <option value="ACOMP">ACOMP</option>
-                            <option value="AMES">AMES</option>
-                            <option value="ANTH">ANTH</option>
-                            <option value="AP">AP</option>
-                            <option value="ART">ART</option>
-                            <option value="ASTR">ASTR</option>
-                            <option value="ATECH">ATECH</option>
-                            <option value="AVIA">AVIA</option>
-                            <option value="B A">B A</option>
-                            <option value="BASIC">BASIC</option>
-                            <option value="BIOL">BIOL</option>
-                            <option value="BTAC">BTAC</option>
-                            <option value="BUS">BUS</option>
-                            <option value="CARP">CARP</option>
-                            <option value="CHEM">CHEM</option>
-                            <option value="CHIN">CHIN</option>
-                            <option value="CJ">CJ</option>
-                            <option value="CMST">CMST</option>
-                            <option value="COOP">COOP</option>
-                            <option value="CRC">CRC</option>
-                            <option value="CS">CS</option>
-                            <option value="D">D</option>
-                            <option value="D T">D T</option>
-                            <option value="DANCE">DANCE</option>
-                            <option value="DRMA">DRMA</option>
-                            <option value="ECED">ECED</option>
-                            <option value="ECON">ECON</option>
-                            <option value="EDUC">EDUC</option>
-                            <option value="ELL">ELL</option>
-                            <option value="ENGL">ENGL</option>
-                            <option value="ENGR">ENGR</option>
-                            <option value="ENV S">ENV S</option>
-                            <option value="FILM">FILM</option>
-                            <option value="FLT">FLT</option>
-                            <option value="FRCH">FRCH</option>
-                            <option value="GEOG">GEOG</option>
-                            <option value="GEOL">GEOL</option>
-                            <option value="GERM">GERM</option>
-                            <option value="H">H</option>
-                            <option value="H SCI">H SCI</option>
-                            <option value="HIST">HIST</option>
-                            <option value="HL ED">HL ED</option>
-                            <option value="HSC">HSC</option>
-                            <option value="HUMAN">HUMAN</option>
-                            <option value="I E">I E</option>
-                            <option value="IBEST">IBEST</option>
-                            <option value="INDUS">INDUS</option>
-                            <option value="INFO">INFO</option>
-                            <option value="IT">IT</option>
-                            <option value="JAPN">JAPN</option>
-                            <option value="JOURN">JOURN</option>
-                            <option value="MATH">MATH</option>
-                            <option value="MATHJ">MATHJ</option>
-                            <option value="MATHM">MATHM</option>
-                            <option value="MFG">MFG</option>
-                            <option value="MGMT">MGMT</option>
-                            <option value="MTX">MTX</option>
-                            <option value="MUSC">MUSC</option>
-                            <option value="N">N</option>
-                            <option value="N SCI">N SCI</option>
-                            <option value="NATRS">NATRS</option>
-                            <option value="NRS A">NRS A</option>
-                            <option value="NURSE">NURSE</option>
-                            <option value="NUTR">NUTR</option>
-                            <option value="OCEA">OCEA</option>
-                            <option value="OTA">OTA</option>
-                            <option value="P E">P E</option>
-                            <option value="PHIL">PHIL</option>
-                            <option value="PHLEB">PHLEB</option>
-                            <option value="PHOTO">PHOTO</option>
-                            <option value="PHYS">PHYS</option>
-                            <option value="PLA">PLA</option>
-                            <option value="POLS">POLS</option>
-                            <option value="PSYC">PSYC</option>
-                            <option value="PTA">PTA</option>
-                            <option value="READ">READ</option>
-                            <option value="S">S</option>
-                            <option value="S SCI">S SCI</option>
-                            <option value="SOC">SOC</option>
-                            <option value="SPAN">SPAN</option>
-                            <option value="ST SK">ST SK</option>
-                            <option value="TECH">TECH</option>
-                            <option value="TS">TS</option>
-                            <option value="TS-OD">TS-OD</option>
-                            <option value="WELD">WELD</option>
-                            <option value="WST">WST</option>
-                            <option value="WTECH">WTECH</option>
-                            <option value="WWT">WWT</option>
-                        </select>
-                        <span class="err" id="err-course">
-                Please select a course prefix
-            </span>
-                    </div>
+                        <div class="col-sm">
+                            <label for="courseprefix">Course Prefix:</label>
+                            <select id="courseprefix" name="courseprefix" title="Choose a Course Prefix">
+                                <option selected="selected" value="-1">All prefixes…</option>
+                                <option value="A SIM">A SIM</option>
+                                <option value="AAM">AAM</option>
+                                <option value="ACCT">ACCT</option>
+                                <option value="ACOMP">ACOMP</option>
+                                <option value="AMES">AMES</option>
+                                <option value="ANTH">ANTH</option>
+                                <option value="AP">AP</option>
+                                <option value="ART">ART</option>
+                                <option value="ASTR">ASTR</option>
+                                <option value="ATECH">ATECH</option>
+                                <option value="AVIA">AVIA</option>
+                                <option value="B A">B A</option>
+                                <option value="BASIC">BASIC</option>
+                                <option value="BIOL">BIOL</option>
+                                <option value="BTAC">BTAC</option>
+                                <option value="BUS">BUS</option>
+                                <option value="CARP">CARP</option>
+                                <option value="CHEM">CHEM</option>
+                                <option value="CHIN">CHIN</option>
+                                <option value="CJ">CJ</option>
+                                <option value="CMST">CMST</option>
+                                <option value="COOP">COOP</option>
+                                <option value="CRC">CRC</option>
+                                <option value="CS">CS</option>
+                                <option value="D">D</option>
+                                <option value="D T">D T</option>
+                                <option value="DANCE">DANCE</option>
+                                <option value="DRMA">DRMA</option>
+                                <option value="ECED">ECED</option>
+                                <option value="ECON">ECON</option>
+                                <option value="EDUC">EDUC</option>
+                                <option value="ELL">ELL</option>
+                                <option value="ENGL">ENGL</option>
+                                <option value="ENGR">ENGR</option>
+                                <option value="ENV S">ENV S</option>
+                                <option value="FILM">FILM</option>
+                                <option value="FLT">FLT</option>
+                                <option value="FRCH">FRCH</option>
+                                <option value="GEOG">GEOG</option>
+                                <option value="GEOL">GEOL</option>
+                                <option value="GERM">GERM</option>
+                                <option value="H">H</option>
+                                <option value="H SCI">H SCI</option>
+                                <option value="HIST">HIST</option>
+                                <option value="HL ED">HL ED</option>
+                                <option value="HSC">HSC</option>
+                                <option value="HUMAN">HUMAN</option>
+                                <option value="I E">I E</option>
+                                <option value="IBEST">IBEST</option>
+                                <option value="INDUS">INDUS</option>
+                                <option value="INFO">INFO</option>
+                                <option value="IT">IT</option>
+                                <option value="JAPN">JAPN</option>
+                                <option value="JOURN">JOURN</option>
+                                <option value="MATH">MATH</option>
+                                <option value="MATHJ">MATHJ</option>
+                                <option value="MATHM">MATHM</option>
+                                <option value="MFG">MFG</option>
+                                <option value="MGMT">MGMT</option>
+                                <option value="MTX">MTX</option>
+                                <option value="MUSC">MUSC</option>
+                                <option value="N">N</option>
+                                <option value="N SCI">N SCI</option>
+                                <option value="NATRS">NATRS</option>
+                                <option value="NRS A">NRS A</option>
+                                <option value="NURSE">NURSE</option>
+                                <option value="NUTR">NUTR</option>
+                                <option value="OCEA">OCEA</option>
+                                <option value="OTA">OTA</option>
+                                <option value="P E">P E</option>
+                                <option value="PHIL">PHIL</option>
+                                <option value="PHLEB">PHLEB</option>
+                                <option value="PHOTO">PHOTO</option>
+                                <option value="PHYS">PHYS</option>
+                                <option value="PLA">PLA</option>
+                                <option value="POLS">POLS</option>
+                                <option value="PSYC">PSYC</option>
+                                <option value="PTA">PTA</option>
+                                <option value="READ">READ</option>
+                                <option value="S">S</option>
+                                <option value="S SCI">S SCI</option>
+                                <option value="SOC">SOC</option>
+                                <option value="SPAN">SPAN</option>
+                                <option value="ST SK">ST SK</option>
+                                <option value="TECH">TECH</option>
+                                <option value="TS">TS</option>
+                                <option value="TS-OD">TS-OD</option>
+                                <option value="WELD">WELD</option>
+                                <option value="WST">WST</option>
+                                <option value="WTECH">WTECH</option>
+                                <option value="WWT">WWT</option>
+                            </select>
+                            <check if="{{ @errors['prefix'] }}">
+                                <span class="err">{{ @errors['prefix'] }}</span>
+                            </check>
+                        </div>
                         <div class="col-sm">
                             <label for="course-item">Item Number:</label>
-                        <input id="course-item" type = "text" class="form-control" placeholder="445">
+                            <input id="course-item" type = "text" class="form-control" placeholder="445" value =  "{{ @course-item }}">
+                            <check if="{{ @errors['course-item'] }}">
+                                <span class="err">{{ @errors['course-item'] }}</span>
+                            </check>
                         </div>
-                </div>
+                    </div>
                     <div class="form-group">
                         <label>Meeting Times:</label>
                         <div class="form-check time-pickers">
@@ -305,42 +306,39 @@
                     <div class="form-group">
                         <label for="location">Class Location:</label>
                         <input type="text" class="form-control"
-                               id="location" name="location">
-                        <span class="err" id="err-location">
-                Please enter a location
-            </span>
+                               id="location" name="location" value="{{ @class-location }}">
+                        <check if="{{ @errors['class-location'] }}">
+                            <span class="err">{{ @errors['class-location'] }}</span>
+                        </check>
+
                     </div>
                     <div class="form-group">
                         <label for="prereqs">Prerequisites:</label>
                         <input type="text" class="form-control"
-                               id="prereqs" name="prereqs">
-                        <span class="err" id="err-prereqs">
-
-            </span>
+                               id="prereqs" name="prereqs" value="{{ @prereqs }}">
                     </div>
                 </fieldset>
             </div>
             <div class="col-sm-6">
                 <fieldset class="form-group mt-5">
                     <legend>Materials</legend>
-
                     <div class="form-group" id="textbook-div">
                         <table id = "textbook-table"class="table table-responsive-stack">
-                        <tbody id="table-body">
-                        <tr>
-                            <td>
-                                <label for="textbook0">Textbook:</label>
-                                <input type="text" class="form-control"
-                                         id="textbook0" name="textbook">
-                            </td>
-                            <td>
-                                <label for="isbn0">ISBN:</label>
-                                <input type="text" class="form-control"
-                                                 id="isbn0" name="isbn" class="form-control" >
-                            </td>
-                        <td> <button id="add-textbook" type="button" class="ml-3 btn btn-outline-success">Add(+)</button></td>
-                        </tr>
-                        </tbody>
+                            <tbody id="table-body">
+                            <tr>
+                                <td>
+                                    <label for="textbook0">Textbook:</label>
+                                    <input type="text" class="form-control"
+                                           id="textbook0" name="textbook">
+                                </td>
+                                <td>
+                                    <label for="isbn0">ISBN:</label>
+                                    <input type="text" class="form-control"
+                                           id="isbn0" name="isbn" class="form-control" >
+                                </td>
+                                <td> <button id="add-textbook" type="button" class="ml-3 btn btn-outline-success">Add(+)</button></td>
+                            </tr>
+                            </tbody>
                         </table>
                     </div>
                     <div class="form-group">
@@ -359,7 +357,7 @@
                             </tr>
                             </tbody>
                         </table>
-                                    </div>
+                    </div>
                 </fieldset>
                 <fieldset class="form-group">
                     <legend>Other</legend>

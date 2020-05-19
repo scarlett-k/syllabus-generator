@@ -20,14 +20,19 @@ class Controller {
             if ($this->_validator->validInfo()) {
                 $first = $_POST['firstName'];
                 $last = $_POST['lastName'];
+                $phone = $_POST['phone'];
+                //$office = $_POST['offLocation'];
+                $course  = $_POST['courseprefix'] /* + ' ' + $_POST['course-item']*/;
+                $location = $_POST['location'];
+                $f3->set('office-location', 'offLocation');
                 $email = $_POST['email'];
-                $office = $_POST['office-hrs'];
-                $meeting = $_POST['meeting-hrs'];
+                $officehrs = $_POST['office-hrs'];
+                $meetingTimes = $_POST['meeting-hrs'];
                 $course = $_POST['course'];
                 $location = $_POST['location'];
                 $isbn = $_POST['isbn'];
 
-                $syllabus = new syllabus($first, $last, $email, $office, $meeting, $course, $location, $isbn);
+                $syllabus = new syllabus($first, $last, $email, $officehrs, $meetingTimes, $course, $location, $isbn);
 //                var_dump($syllabus);
 
                 $_SESSION['syllabus'] = $syllabus;
@@ -39,6 +44,8 @@ class Controller {
                 $_SESSION = array();
             }
             else {
+                $this->_f3->set('errors', $this->_validator->getErrors());
+
                 $this->_f3->set('preview', $_POST);
             }
 

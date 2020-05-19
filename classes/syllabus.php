@@ -16,6 +16,7 @@ class syllabus
     private $_email;
     private $_office;
     private $_officeHours;
+    private $_phone;
     private $_course;
     private $_meetingTimes;
     private $_location;
@@ -27,23 +28,28 @@ class syllabus
      * syllabus constructor.
      * @param $_firstname
      * @param $_lastname
+     * @param $_email
      * @param $_office
      * @param $_officeHours
+     * @param $_phone
      * @param $_course
      * @param $_meetingTimes
      * @param $_location
+     * @param $_textbook
      */
-    public function __construct($_firstname, $_lastname, $_email, $_office, $_officeHours,
-                                $_course, $_meetingTimes, $_location)
+    public function __construct($_firstname, $_lastname, $_email, $_office, $_officeHours, $_phone,
+                                $_course, $_meetingTimes, $_location, $_textbook)
     {
         $this->_firstname = $_firstname;
         $this->_lastname = $_lastname;
         $this->_email = $_email;
         $this->_office = $_office;
         $this->_officeHours = $_officeHours;
+        $this->_phone = $_phone;
         $this->_course = $_course;
         $this->_meetingTimes = $_meetingTimes;
         $this->_location = $_location;
+        $this->_textbook = $_textbook;
     }
 
 
@@ -222,4 +228,21 @@ class syllabus
     {
         $this->_materials = $materials;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getPhone()
+    {
+        return $this->_phone;
+    }
+
+    /**
+     * @param mixed $phone
+     */
+    public function setPhone($phone)
+    {
+        $this->_phone = $phone;
+    }
+
 }
