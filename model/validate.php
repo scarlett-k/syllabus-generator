@@ -25,13 +25,16 @@ class Validate
         return $this->_errors;
     }
     public function validInfo() {
-        $this->validFirst($_POST['firstName']);
-        $this->validLast($_POST['lastName']);
+        $this->validFirst($_POST['firstname']);
+        $this->validLast($_POST['lastname']);
+        $this->validPhone($_POST['phone']);
+        // doesnt work
+//        $this->validLocation($_POST['office-location']);
         $this->validEmail($_POST['email']);
         $this->validOfficeHours($_POST['office-hrs']);
         $this->validOfficeHours($_POST['meeting-hrs']);
         $this->validClass($_POST['course']);
-        $this->validLocation($_POST['location']);
+//        $this->validLocation($_POST['class-location']);
         $this->validISBN($_POST['isbn']);
 
         return empty($this->_errors);
@@ -43,15 +46,15 @@ class Validate
      */
     public function validFirst($first)
     {
-        if (ctype_alpha($first) AND empty(trim($first))) {
-            $this->_errors['firstName'] = "please enter a first name.";
+        if (!ctype_alpha($first) OR empty(trim($first))) {
+            $this->_errors['firstname'] = "please enter a first name.";
         }
     }
 
     public function validLast($last)
     {
-        if (ctype_alpha($last) AND empty(trim($last))) {
-            $this->_errors['lastName'] = "please enter a last name.";
+        if (!ctype_alpha($last) OR empty(trim($last))) {
+            $this->_errors['lastname'] = "please enter a last name.";
         }
     }
     /**
@@ -59,8 +62,8 @@ class Validate
      * @return bool
      */
     function validPhone($phone){
-        if (preg_match("/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/", $phone)||
-            preg_match("/^[0-9]{10}$/", $phone)) {
+        if (!preg_match("/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/", $phone)||
+            !preg_match("/^[0-9]{10}$/", $phone)) {
             $this->_errors['phone'] = "please enter a phone number.";
         }
     }
@@ -80,7 +83,7 @@ class Validate
      * @return bool
      */
     public function validOfficeHours($hour){
-        if (ctype_digit($hour)) {
+        if (!ctype_digit($hour)) {
             $this->_errors['office-hrs'] = "please enter office hours";
         }
     }
@@ -106,10 +109,10 @@ class Validate
     }
 
     function validISBN($ISBN){
-        if (preg_match("/^[0-9]{3}-[0-9]-[0-9]{2}-[0-9]{6}-[0-9]$/", $ISBN)||
-            preg_match("/^[0-9]-[0-9]{3}-[0-9]{5}-[0-9]$/", $ISBN)||
-            preg_match("/^[0-9]{13}$/", $ISBN) ||
-            preg_match("/^[0-9]{10}$/", $ISBN)) {
+        if (!preg_match("/^[0-9]{3}-[0-9]-[0-9]{2}-[0-9]{6}-[0-9]$/", $ISBN)||
+            !preg_match("/^[0-9]-[0-9]{3}-[0-9]{5}-[0-9]$/", $ISBN)||
+            !preg_match("/^[0-9]{13}$/", $ISBN) ||
+            !preg_match("/^[0-9]{10}$/", $ISBN)) {
             $this->_errors['isbn'] = "please enter a valid isbn";
         }
     }

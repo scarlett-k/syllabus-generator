@@ -18,9 +18,9 @@
                         <label for="firstName">First name:</label>
                         <input type="text" class="form-control"
                                id="firstName" name="firstName" value = "{{ @firstname }}">
-                        <check if="{{ @errors['firstname'] }}">
+
                             <span class="err">{{ @errors['firstname'] }}</span>
-                        </check>
+                            <span class="error"></span>
                     </div>
                     <div class="form-group">
                         <label for="lastName">Last name:</label>
@@ -41,9 +41,9 @@
                     <div class="form-group">
                         <label for="office">Office location: </label>
                         <input type="text" class="form-control"
-                               id="office" name="office" value = "{{ @office-location }}">
-                        <check if="{{ @errors['office-location'] }}">
-                            <span class="err">{{ @errors['office-location'] }}</span>
+                               id="office" name="office" >
+                        <check if="{{ @errors['location'] }}">
+                            <span class="err">{{ @errors['location'] }}</span>
                         </check>
                     </div>
                     <div class="form-group">
@@ -112,7 +112,9 @@
                                 <input type="time"   class="form-control" placeholder="Select time">
                             </div>
                         </div>
-
+                        <check if="{{ @errors['office-hrs'] }}">
+                            <span class="err">{{ @errors['office-hrs'] }}</span>
+                        </check>
                     </div>
                     <div class="form-group">
                         <label for="email">Instructor e-mail:</label>
@@ -230,7 +232,7 @@
                         </div>
                         <div class="col-sm">
                             <label for="course-item">Item Number:</label>
-                            <input id="course-item" type = "text" class="form-control" placeholder="445" value =  "{{ @course-item }}">
+                            <input id="course-item" type = "text" class="form-control" placeholder="445" >
                             <check if="{{ @errors['course-item'] }}">
                                 <span class="err">{{ @errors['course-item'] }}</span>
                             </check>
@@ -301,12 +303,14 @@
                                 <input type="time"   class="form-control" placeholder="Select time">
                             </div>
                         </div>
-                        <span class="err" id="err-meeting-hrs">Please enter meeting times.</span>
+                        <check if="{{ @errors['meeting-hrs'] }}">
+                            <span class="err">{{ @errors['meeting-hrs'] }}</span>
+                        </check>
                     </div>
                     <div class="form-group">
                         <label for="location">Class Location:</label>
                         <input type="text" class="form-control"
-                               id="location" name="location" value="{{ @class-location }}">
+                               id="location" name="location" >
                         <check if="{{ @errors['class-location'] }}">
                             <span class="err">{{ @errors['class-location'] }}</span>
                         </check>
