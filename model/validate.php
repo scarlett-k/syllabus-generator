@@ -25,24 +25,23 @@ class Validate
         return $this->_errors;
     }
     public function validInfo() {
-        $this->validFirst($_POST['firstname']);
-        $this->validLast($_POST['lastname']);
-        $this->validPhone($_POST['phone']);
-        // doesnt work
-//        $this->validLocation($_POST['office-location']);
-        $this->validEmail($_POST['email']);
-        $this->validOfficeHours($_POST['office-hrs']);
-        $this->validOfficeHours($_POST['meeting-hrs']);
-        $this->validClassPrefix($_POST['course']);
-//        $this->validLocation($_POST['class-location']);
-        $this->validISBN($_POST['isbn']);
+        $this->validFirst($_POST['firstname']); // done
+        $this->validLast($_POST['lastname']);// done
+        $this->validPhone($_POST['phone']);// done
+        $this->validOffice($_POST['office']);// done
+        $this->validOfficeHours($_POST['office-hrs']);// done
+        $this->validEmail($_POST['email']);// done
+        $this->validCoursePrefix($_POST['courseprefix']);// done
+        $this->validItemNumber($_POST['course-item']);// done
+        $this->validMeetingHours($_POST['meeting-hrs']);// done
+        $this->validLocation($_POST['class-location']);
+//        $this->validISBN($_POST['isbn']);
 
         return empty($this->_errors);
     }
     
     /**
      * @param $string
-     * @return bool
      */
     public function validFirst($first)
     {
@@ -59,7 +58,6 @@ class Validate
     }
     /**
      * @param $phone
-     * @return bool
      */
     function validPhone($phone){
         if (!preg_match("/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/", $phone)||
@@ -72,9 +70,18 @@ class Validate
      * @param $email
      */
     public function validEmail($email){
-         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-             $this->_errors['email'] = "valid email is required: email@example.com";
-         }
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $this->_errors['email'] = "valid email is required: email@example.com";
+        }
+    }
+
+    /**
+     * @param $office
+     */
+    function validOffice($office) {
+        if (empty(trim($office)) || !preg_match("/^[a-zA-Z0-9\s]*$/", $office)) {
+            $this->_errors['office'] = "please enter a valid office location";
+        }
     }
 
     /**
@@ -86,31 +93,49 @@ class Validate
         }
     }
 
-    /**
-     * @param $string
-     */
-    public function validClassPrefix($string){
-        if (!preg_match("/^[a-zA-Z\s.(&)]*$/", $string)) {
-            $this->_errors['class'] = "please enter a valid class prefix";
+    public function validCoursePrefix ($prefix)
+    {
+        if ($prefix == '-1') {
+            $this->_errors['prefix'] = "Please enter a course prefix";
         }
     }
 
-    /**
-     * @param $num
-     */
-    public function validClassNum($num){
-        if (!ctype_digit($num)) {
-            $this->_errors['classnum'] = "please enter a valid class number";
+    public function validItemNumber($number)
+    {
+        if (empty($number)&& !ctype_digit($number)) {
+            $this->_errors['course-item'] = "please enter a valid course number";
         }
     }
-
     /**
-     * @param $string
-     * @return bool
+     * @param $hour
      */
-    function validLocation($string){
-        if (!preg_match("/^[a-zA-Z0-9\s]*$/", $string)) {
-            $this->_errors['location'] = "please enter a valid location";
+    public function validMeetingHours($hour){
+        if (!ctype_digit($hour)) {
+            $this->_errors['meeting-hrs'] = "please enter meeting hours";
+        }
+    }
+//    /**
+//     * @param $string
+//     */
+//    public function validClassPrefix($string){
+//        if (!preg_match("/^[a-zA-Z\s.(&)]*$/", $string)) {
+//            $this->_errors['class'] = "please enter a valid class prefix";
+//        }
+//    }
+//
+//    /**
+//     * @param $num
+//     */
+//    public function validClassNum($num){
+//        if (!ctype_digit($num)) {
+//            $this->_errors['classnum'] = "please enter a valid class number";
+//        }
+//    }
+
+    public function validLocation($location)
+    {
+        if (empty(trim($location)) || !preg_match("/^[a-zA-Z0-9\s]*$/", $location)) {
+            $this->_errors['class-location'] = "please enter a valid class location";
         }
     }
 
