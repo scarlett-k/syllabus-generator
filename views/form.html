@@ -19,8 +19,8 @@
                         <input type="text" class="form-control"
                                id="firstName" name="firstName" value = "{{ @firstname }}">
 
-                            <span class="err">{{ @errors['firstname'] }}</span>
-                            <span class="error"></span>
+                        <span class="err">{{ @errors['firstname'] }}</span>
+                        <span class="error"></span>
                     </div>
                     <div class="form-group">
                         <label for="lastName">Last name:</label>
@@ -50,66 +50,60 @@
                         <label>Office Hours:</label>
                         <div class="form-check time-pickers">
                             <div class="md-form md-outline form-inline">
-                                <input class="form-check-input" type="checkbox"
-                                       value="mon" id="mon"
-                                       name="office-hrs[]">
+
                                 <label class="form-check-label" for="mon">
                                     Mon &nbsp;
                                 </label>
-                                <input type="time"  class="form-control" placeholder="Select time">
+                                <input type="time" min="07:00" max="19:00"  class="form-control">
                                 <p>&nbsp; - &nbsp; </p>
-                                <input type="time"   class="form-control" placeholder="Select time">
+                                <input type="time"  min="07:00" max="19:00"  class="form-control">
+
                             </div>
                         </div>
                         <div class="form-check time-pickers">
 
                             <div class="md-form md-outline form-inline">
-                                <input class="form-check-input" type="checkbox"
-                                       value="tue" id="tue" name="office-hrs[]">
+
                                 <label class="form-check-label" for="tue">
                                     Tue &nbsp;
                                 </label>
-                                <input type="time" class="form-control" placeholder="Select time">
+                                <input type="time" min="07:00" max="19:00"  class="form-control"id="tue">
                                 <p>&nbsp; - &nbsp; </p>
-                                <input type="time"  class="form-control" placeholder="Select time">
+                                <input type="time" min="07:00" max="19:00"  class="form-control" >
                             </div>
                         </div>
                         <div class="form-check time-pickers">
 
                             <div class="md-form md-outline form-inline">
-                                <input class="form-check-input" type="checkbox"
-                                       value="wed" id="wed" name="office-hrs[]">
+
                                 <label class="form-check-label" for="wed">
                                     Wed &nbsp;
                                 </label>
-                                <input type="time"  class="form-control" placeholder="Select time">
+                                <input type="time" min="07:00" max="19:00"  class="form-control" id="wed">
                                 <p>&nbsp; - &nbsp; </p>
-                                <input type="time"   class="form-control" placeholder="Select time">
+                                <input type="time" min="07:00" max="19:00"   class="form-control">
                             </div>
                         </div>
                         <div class="form-check time-pickers">
 
                             <div class="md-form md-outline form-inline">
-                                <input class="form-check-input" type="checkbox"
-                                       value="thur" id="thur" name="office-hrs[]">
                                 <label class="form-check-label" for="thur">
                                     Thur &nbsp;
                                 </label>
-                                <input type="time"  class="form-control" placeholder="Select time">
+                                <input type="time" min="07:00" max="19:00"  class="form-control" id="thur">
                                 <p>&nbsp; - &nbsp; </p>
-                                <input type="time"   class="form-control" placeholder="Select time">
+                                <input type="time" min="07:00" max="19:00"   class="form-control">
                             </div>
                         </div>
                         <div class="form-check time-pickers">
                             <div class="md-form md-outline form-inline">
-                                <input class="form-check-input" type="checkbox"
-                                       value="fri" id="fri" name="office-hrs[]">
                                 <label class="form-check-label" for="fri">
                                     Fri &nbsp;
                                 </label>
-                                <input type="time"  class="form-control" placeholder="Select time">
+                                <input type="time" min="07:00" max="19:00"  class="form-control" id="fri">
                                 <p>&nbsp; - &nbsp; </p>
-                                <input type="time"   class="form-control" placeholder="Select time">
+                                <input type="time"  min="07:00" max="19:00"  class="form-control">
+                                <small>(Office hours should be 7am to 7pm)</small>
                             </div>
                         </div>
                         <check if="{{ @errors['office-hrs'] }}">
@@ -242,65 +236,55 @@
                         <label>Meeting Times:</label>
                         <div class="form-check time-pickers">
                             <div class="md-form md-outline form-inline">
-                                <input class="form-check-input" type="checkbox"
-                                       value="mon" id="monday"
-                                       name="meeting-hrs[]">
+
                                 <label class="form-check-label" for="monday">
                                     Mon &nbsp;
                                 </label>
-                                <input type="time"  class="form-control" placeholder="Select time">
+                                <input type="time" min="07:00" max="19:00"  class="form-control" id="monday">
                                 <p>&nbsp; - &nbsp; </p>
-                                <input type="time"   class="form-control" placeholder="Select time">
+                                <input type="time" min="07:00" max="19:00"   class="form-control">
                             </div>
                         </div>
                         <div class="form-check time-pickers">
 
                             <div class="md-form md-outline form-inline">
-                                <input class="form-check-input" type="checkbox"
-                                       value="tue" id="tuesday" name="meeting-hrs[]">
                                 <label class="form-check-label" for="tuesday">
                                     Tue &nbsp;
                                 </label>
-                                <input type="time"  class="form-control" placeholder="Select time">
+                                <input type="time" min="07:00" max="19:00" class="form-control" id="tuesday">
                                 <p>&nbsp; - &nbsp; </p>
-                                <input type="time"   class="form-control" placeholder="Select time">
+                                <input type="time" min="07:00" max="19:00"  class="form-control">
                             </div>
                         </div>
                         <div class="form-check  time-pickers">
 
                             <div class="md-form md-outline form-inline">
-                                <input class="form-check-input" type="checkbox"
-                                       value="wed" id="wednesday" name="meeting-hrs[]">
                                 <label class="form-check-label" for="wednesday">
                                     Wed &nbsp;
                                 </label>
-                                <input type="time"  class="form-control" placeholder="Select time">
+                                <input type="time" min="07:00" max="19:00"  class="form-control" id="wednesday">
                                 <p>&nbsp; - &nbsp; </p>
-                                <input type="time"  class="form-control" placeholder="Select time">
+                                <input type="time" min="07:00" max="19:00"  class="form-control">
                             </div>
                         </div>
                         <div class="form-check time-pickers">
                             <div class="md-form md-outline form-inline">
-                                <input class="form-check-input" type="checkbox"
-                                       value="thur" id="thursday" name="meeting-hrs[]">
                                 <label class="form-check-label" for="thursday">
                                     Thur &nbsp;
                                 </label>
-                                <input type="time"  class="form-control" placeholder="Select time">
+                                <input type="time" min="07:00" max="19:00"  class="form-control" id="thursday">
                                 <p>&nbsp; - &nbsp; </p>
-                                <input type="time"   class="form-control" placeholder="Select time">
+                                <input type="time"  min="07:00" max="19:00"  class="form-control">
                             </div>
                         </div>
                         <div class="form-check time-pickers">
                             <div class="md-form md-outline form-inline">
-                                <input class="form-check-input" type="checkbox"
-                                       value="fri" id="friday" name="meeting-hrs[]">
                                 <label class="form-check-label" for="friday">
                                     Fri &nbsp;
                                 </label>
-                                <input type="time"  class="form-control" placeholder="Select time">
+                                <input type="time" min="07:00" max="19:00"  class="form-control" id="friday">
                                 <p>&nbsp; - &nbsp; </p>
-                                <input type="time"   class="form-control" placeholder="Select time">
+                                <input type="time"  min="07:00" max="19:00"  class="form-control">
                             </div>
                         </div>
                         <check if="{{ @errors['meeting-hrs'] }}">
@@ -316,11 +300,11 @@
                         </check>
 
                     </div>
-                    <div class="form-group">
-                        <label for="prereqs">Prerequisites:</label>
-                        <input type="text" class="form-control"
-                               id="prereqs" name="prereqs" value="{{ @prereqs }}">
-                    </div>
+<!--                    <div class="form-group">-->
+<!--                        <label for="prereqs">Prerequisites:</label>-->
+<!--                        <input type="text" class="form-control"-->
+<!--                               id="prereqs" name="prereqs" value="{{ @prereqs }}">-->
+<!--                    </div>-->
                 </fieldset>
             </div>
             <div class="col-sm-6">
@@ -351,7 +335,7 @@
                             <tr>
                                 <td>
                                     <label class="form-check-label" for="materials0">
-                                        Additional Materials
+                                        Materials
                                     </label>
                                     <input type="text" class="form-control"
                                            id="materials0" name="materials">

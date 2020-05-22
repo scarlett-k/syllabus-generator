@@ -33,7 +33,7 @@ class Validate
         $this->validEmail($_POST['email']);
         $this->validOfficeHours($_POST['office-hrs']);
         $this->validOfficeHours($_POST['meeting-hrs']);
-        $this->validClass($_POST['course']);
+        $this->validClassPrefix($_POST['course']);
 //        $this->validLocation($_POST['class-location']);
         $this->validISBN($_POST['isbn']);
 
@@ -70,7 +70,6 @@ class Validate
 
     /**
      * @param $email
-     * @return mixed
      */
     public function validEmail($email){
          if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -80,7 +79,6 @@ class Validate
 
     /**
      * @param $hour
-     * @return bool
      */
     public function validOfficeHours($hour){
         if (!ctype_digit($hour)) {
@@ -90,11 +88,19 @@ class Validate
 
     /**
      * @param $string
-     * @return bool
      */
-    public function validClass($string){
-        if (preg_match("/^[a-zA-Z0-9\s.(&)]*$/", $string)) {
-            $this->_errors['class'] = "please enter a valid class";
+    public function validClassPrefix($string){
+        if (!preg_match("/^[a-zA-Z\s.(&)]*$/", $string)) {
+            $this->_errors['class'] = "please enter a valid class prefix";
+        }
+    }
+
+    /**
+     * @param $num
+     */
+    public function validClassNum($num){
+        if (!ctype_digit($num)) {
+            $this->_errors['classnum'] = "please enter a valid class number";
         }
     }
 
@@ -103,7 +109,7 @@ class Validate
      * @return bool
      */
     function validLocation($string){
-        if (preg_match("/^[a-zA-Z0-9\s.-]*$/", $string)) {
+        if (!preg_match("/^[a-zA-Z0-9\s]*$/", $string)) {
             $this->_errors['location'] = "please enter a valid location";
         }
     }
