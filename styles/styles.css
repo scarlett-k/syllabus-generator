@@ -1,9 +1,10 @@
-.time-pickers{
-    margin-bottom: 20px;
+.err {
+    color: red;
+    visibility: hidden;
 }
+
 fieldset{
     padding: 1em;
-    border: 1px solid black;
 }
 select {
     margin: 5px;
@@ -32,17 +33,6 @@ legend {
     font-size: 125%;
     width:auto;
 }
-.circle {
-    border-radius: 50%;
-    background-color: grey;
-    color: white;
-    border: none;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    width: 30px;
-    margin: 8px;
-}
 
 #divs{
     padding: 40px 0;
@@ -52,4 +42,21 @@ legend {
     left: 0;
     right: 0;
     margin: 20px;
+}
+header, .full-width {
+    width: 100%;
+    background: #72C18B;
+}
+.wrap {
+    width: 80%;
+    max-width: 24em;
+    margin: 0 auto;
+    padding: 0.25em 0.625em;
+}
+.gen-button{
+    background-color: #E9E9E9;
+    color: black;
+}
+h1 {
+    color: #707070;
 }

@@ -3,7 +3,7 @@
 <head>
     <!-- header -->
     <include href="views/header.html">
-        <title>GRC Syllabus Generator</title>
+        <title class = grey>GRC Syllabus Generator</title>
         </head>
 <body>
 <img src="images/logo.png" alt = "GRC Logo" style="float: left;  margin-bottom: 30px; margin-right: 20px" />
@@ -13,7 +13,9 @@
         <div class="row" id="divs">
             <div class="col-sm-3">
                 <fieldset class="form-group mt-5">
-                    <legend>Instructor Info</legend>
+                    <h5 class="full-width">
+                        <div class="wrap">Instructor Info</div>
+                    </h5>
                     <div class="form-group">
                         <label for="firstName">First name:</label>
                         <input type="text" class="form-control"
@@ -39,6 +41,14 @@
                         </check>
                     </div>
                     <div class="form-group">
+                        <label for="email">Instructor e-mail:</label>
+                        <input type="text" class="form-control"
+                               id="email" name="email" value="{{ @email }}">
+                        <check if="{{ @errors['email'] }}">
+                            <span class="err">{{ @errors['email'] }}</span>
+                        </check>
+                    </div>
+                    <div class="form-group">
                         <label for="office">Office location: </label>
                         <input type="text" class="form-control"
                                id="office" name="office" >
@@ -49,12 +59,12 @@
                     <div class="form-group">
                         <label>Office Hours:</label>
                         <div class="form-check time-pickers">
-                            <div class="md-form md-outline form-inline">
+                            <div class="md-form md-outline form-inline mb-3">
 
                                 <label class="form-check-label" for="mon">
                                     Mon &nbsp;
                                 </label>
-                                <input type="time" min="07:00" max="19:00"  class="form-control">
+                                <input type="time" min="07:00" max="19:00"  class="form-control" id="mon">
                                 <p>&nbsp; - &nbsp; </p>
                                 <input type="time"  min="07:00" max="19:00"  class="form-control">
 
@@ -62,7 +72,7 @@
                         </div>
                         <div class="form-check time-pickers">
 
-                            <div class="md-form md-outline form-inline">
+                            <div class="md-form md-outline form-inline mb-3">
 
                                 <label class="form-check-label" for="tue">
                                     Tue &nbsp;
@@ -74,7 +84,7 @@
                         </div>
                         <div class="form-check time-pickers">
 
-                            <div class="md-form md-outline form-inline">
+                            <div class="md-form md-outline form-inline mb-3">
 
                                 <label class="form-check-label" for="wed">
                                     Wed &nbsp;
@@ -86,7 +96,7 @@
                         </div>
                         <div class="form-check time-pickers">
 
-                            <div class="md-form md-outline form-inline">
+                            <div class="md-form md-outline form-inline mb-3">
                                 <label class="form-check-label" for="thur">
                                     Thur &nbsp;
                                 </label>
@@ -96,34 +106,28 @@
                             </div>
                         </div>
                         <div class="form-check time-pickers">
-                            <div class="md-form md-outline form-inline">
+                            <div class="md-form md-outline form-inline mb-3">
                                 <label class="form-check-label" for="fri">
                                     Fri &nbsp;
                                 </label>
                                 <input type="time" min="07:00" max="19:00"  class="form-control" id="fri">
                                 <p>&nbsp; - &nbsp; </p>
                                 <input type="time"  min="07:00" max="19:00"  class="form-control">
-                                <small>(Office hours should be 7am to 7pm)</small>
+                                <small>(Office hours should be between 7am to 7pm)</small>
                             </div>
                         </div>
                         <check if="{{ @errors['office-hrs'] }}">
                             <span class="err">{{ @errors['office-hrs'] }}</span>
                         </check>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Instructor e-mail:</label>
-                        <input type="text" class="form-control"
-                               id="email" name="email" value="{{ @email }}">
-                        <check if="{{ @errors['email'] }}">
-                            <span class="err">{{ @errors['email'] }}</span>
-                        </check>
-                    </div>
                 </fieldset>
             </div>
             <div class="col-sm-3">
                 <fieldset class="form-group mt-5">
-                    <legend>Course Information</legend>
-                    <div class = "row">
+                    <h5 class="full-width">
+                        <div class="wrap">Course Information</div>
+                    </h5>
+                    <div class = "row mb-3">
                         <div class="col-sm">
                             <label for="courseprefix">Course Prefix:</label>
                             <select id="courseprefix" name="courseprefix" title="Choose a Course Prefix">
@@ -235,8 +239,7 @@
                     <div class="form-group">
                         <label>Meeting Times:</label>
                         <div class="form-check time-pickers">
-                            <div class="md-form md-outline form-inline">
-
+                            <div class="md-form md-outline form-inline mb-3">
                                 <label class="form-check-label" for="monday">
                                     Mon &nbsp;
                                 </label>
@@ -246,8 +249,7 @@
                             </div>
                         </div>
                         <div class="form-check time-pickers">
-
-                            <div class="md-form md-outline form-inline">
+                            <div class="md-form md-outline form-inline mb-3">
                                 <label class="form-check-label" for="tuesday">
                                     Tue &nbsp;
                                 </label>
@@ -258,7 +260,7 @@
                         </div>
                         <div class="form-check  time-pickers">
 
-                            <div class="md-form md-outline form-inline">
+                            <div class="md-form md-outline form-inline mb-3">
                                 <label class="form-check-label" for="wednesday">
                                     Wed &nbsp;
                                 </label>
@@ -268,7 +270,7 @@
                             </div>
                         </div>
                         <div class="form-check time-pickers">
-                            <div class="md-form md-outline form-inline">
+                            <div class="md-form md-outline form-inline mb-3">
                                 <label class="form-check-label" for="thursday">
                                     Thur &nbsp;
                                 </label>
@@ -278,7 +280,7 @@
                             </div>
                         </div>
                         <div class="form-check time-pickers">
-                            <div class="md-form md-outline form-inline">
+                            <div class="md-form md-outline form-inline mb-3">
                                 <label class="form-check-label" for="friday">
                                     Fri &nbsp;
                                 </label>
@@ -286,6 +288,7 @@
                                 <p>&nbsp; - &nbsp; </p>
                                 <input type="time"  min="07:00" max="19:00"  class="form-control">
                             </div>
+                            <small>(Meeting hours should be between 7am to 7pm)</small>
                         </div>
                         <check if="{{ @errors['meeting-hrs'] }}">
                             <span class="err">{{ @errors['meeting-hrs'] }}</span>
@@ -309,7 +312,9 @@
             </div>
             <div class="col-sm-6">
                 <fieldset class="form-group mt-5">
-                    <legend>Materials</legend>
+                    <h5 class="full-width">
+                        <div class="wrap">Materials</div>
+                    </h5>
                     <div class="form-group" id="textbook-div">
                         <table id = "textbook-table"class="table table-responsive-stack">
                             <tbody id="table-body">
@@ -348,16 +353,17 @@
                     </div>
                 </fieldset>
                 <fieldset class="form-group">
-                    <legend>Other</legend>
+                    <h5 class="full-width">
+                        <div class="wrap">Other</div>
+                    </h5>
                     <div class="form-group">
-                        <label for="other">Other information:</label>
-                        <input type="text" class="form-control"
-                               id="other" name="other">
+                        <label for="other">Other information (optional):</label>
+                        <textarea cols = 120 rows = 5 name="other" id="other"></textarea>
                     </div>
 
                 </fieldset>
                 <div class="align-content-center">
-                    <button id="submit" type="submit" class="btn btn-primary">Generate</button>
+                    <button id="submit" type="submit" class="btn gen-button">Generate</button>
                 </div>
             </div>
         </div>
