@@ -51,9 +51,9 @@
                     <div class="form-group">
                         <label for="office">Office location: </label>
                         <input type="text" class="form-control"
-                               id="office" name="office" >
-                        <check if="{{ @errors['location'] }}">
-                            <span class="err">{{ @errors['location'] }}</span>
+                               id="office" name="office" value="{{ @office }}">
+                        <check if="{{ @errors['office'] }}">
+                            <span class="err">{{ @errors['office'] }}</span>
                         </check>
                     </div>
                     <div class="form-group">
@@ -229,12 +229,16 @@
                             </check>
                         </div>
                         <div class="col-sm">
-                            <label for="course-item">Item Number:</label>
+                            <label for="course-item">Class Number:</label>
                             <input id="course-item" type = "text" class="form-control" placeholder="445" >
                             <check if="{{ @errors['course-item'] }}">
                                 <span class="err">{{ @errors['course-item'] }}</span>
                             </check>
                         </div>
+                    </div>
+                    <div class="form-group form-inline">
+                        <input type="checkbox" id="online" name="online" value="online" class="mr-3">
+                        <label for = "online">Online Class</label>
                     </div>
                     <div class="form-group">
                         <label>Meeting Times:</label>

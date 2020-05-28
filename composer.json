@@ -1,5 +1,5 @@
 {
-  "name": "Syllabus Generator",
+  "name": "iCollect",
   "authors":
   [
     {
@@ -17,10 +17,9 @@
   ],
   "require":
   {
-    "bcosca/fatfree-core": "dev-master",
-    "ext-ctype": "*"
+    "bcosca/fatfree-core": "dev-master"
   },
   "autoload": {
-    "classmap": ["controller/", "model/", "classes"]
+    "classmap": ["controller/", "model/", "classes/"]
   }
 }

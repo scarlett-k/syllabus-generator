@@ -6,9 +6,28 @@
 </head>
 <body>
 <img src="images/logo.png" alt = "GRC Logo" style="float: left;  margin-bottom: 30px; margin-right: 20px" />
+
 <h1>GRC Syllabus Generator</h1>
 
-<button id="preview">Download Your Syllabus</button>
+<div class="preview">
+    <p>First name: {{ @SESSION['syllabus']->getFirstname() }}</p>
+    <p>Last name: {{ @SESSION['syllabus']->getLastname() }}</p>
+    <p>Phone: {{ @SESSION['syllabus']->getPhone() }}</p>
+
+    <p>Email: {{ @SESSION['syllabus']->getEmail() }}</p>
+    <p>Office location: {{ @SESSION['syllabus']->getOffice() }}</p>
+    <p>Course: {{ @SESSION['syllabus']->getCourse() }}</p>
+    <p>Office hours: {{ @SESSION['syllabus']->getOfficeHours() }}</p>
+    <p>Meeting times: {{ @SESSION['syllabus']->getMeetingTimes() }}</p>
+    <p>Class location: {{ @SESSION['syllabus']->getLocation() }}</p>
+    <p>Textbook(s): {{ @SESSION['syllabus']->getTextbook() }}</p>
+    <p>ISBN: {{ @SESSION['syllabus']->getISBN() }}</p>
+    <p>Materials: {{ @SESSION['syllabus']->getMaterials() }}</p>
+
+    <button id="preview">Download Your Syllabus</button>
+</div>
+
+
 </body>
 <include href="views/footer.html">
 </html>

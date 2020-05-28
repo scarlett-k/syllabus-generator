@@ -22,6 +22,7 @@ class syllabus
     private $_location;
     private $_prerequ;
     private $_textbook;
+    private $_isbn;
     private $_materials;
 
     /**
@@ -36,9 +37,10 @@ class syllabus
      * @param $_meetingTimes
      * @param $_location
      * @param $_textbook
+     * @param $_materials
      */
     public function __construct($_firstname, $_lastname, $_email, $_office, $_officeHours, $_phone,
-                                $_course, $_meetingTimes, $_location, $_textbook)
+                                $_course, $_meetingTimes, $_location, $_textbook, $_isbn, $_materials)
     {
         $this->_firstname = $_firstname;
         $this->_lastname = $_lastname;
@@ -50,6 +52,8 @@ class syllabus
         $this->_meetingTimes = $_meetingTimes;
         $this->_location = $_location;
         $this->_textbook = $_textbook;
+        $this->_isbn = $_isbn;
+        $this->_materials = $_materials;
     }
 
 
@@ -212,13 +216,25 @@ class syllabus
     {
         $this->_textbook = $textbook;
     }
+    public function getMaterials()
+    {
+        return $this->_materials;
+    }
+
+    /**
+     * @param mixed $isbn
+     */
+    public function setISBN($isbn)
+    {
+        $this->_isbn = $isbn;
+    }
 
     /**
      * @return mixed
      */
-    public function getMaterials()
+    public function getISBN()
     {
-        return $this->_materials;
+        return $this->_isbn;
     }
 
     /**
