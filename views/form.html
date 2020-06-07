@@ -230,7 +230,7 @@
                         </div>
                         <div class="col-sm">
                             <label for="course-item">Class Number:</label>
-                            <input id="course-item" type = "text" class="form-control" placeholder="445" >
+                            <input id="course-item" name="course-item" type = "text" class="form-control" placeholder="445" >
                             <check if="{{ @errors['course-item'] }}">
                                 <span class="err">{{ @errors['course-item'] }}</span>
                             </check>
@@ -307,11 +307,6 @@
                         </check>
 
                     </div>
-<!--                    <div class="form-group">-->
-<!--                        <label for="prereqs">Prerequisites:</label>-->
-<!--                        <input type="text" class="form-control"-->
-<!--                               id="prereqs" name="prereqs" value="{{ @prereqs }}">-->
-<!--                    </div>-->
                 </fieldset>
             </div>
             <div class="col-sm-6">

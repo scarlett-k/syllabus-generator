@@ -1,6 +1,6 @@
 .err {
     color: red;
-    visibility: hidden;
+    /*visibility: hidden;*/
 }
 
 fieldset{
@@ -59,4 +59,7 @@ header, .full-width {
 }
 h1 {
     color: #707070;
+}
+.preview{
+    margin: 70px;
 }
