@@ -35,9 +35,10 @@ class Validate
         $this->validItemNumber($_POST['course-item']);// done
         $this->validMeetingHours($_POST['meeting-hrs']);// done
         $this->validLocation($_POST['class-location']);
-//        $this->validISBN($_POST['isbn']);
+        $this->validISBN($_POST['isbn']);
 
-        return empty($this->_errors);
+//        return empty($this->_errors);
+        return true;
     }
     
     /**

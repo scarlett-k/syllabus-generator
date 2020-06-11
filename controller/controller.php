@@ -26,15 +26,81 @@ class Controller {
             $location = $_POST['location'];
 //                $f3->set('office-location', 'offLocation');
             $email = $_POST['email'];
-            $officehrs = $_POST['office-hrs'];
-            $meetingTimes = $_POST['meeting-hrs'] ;
-            $prefix = $_POST['courseprefix'] ;
+            $officehrs = "";
+            $meetingTimes = $_POST['meeting-hrs'];
+            $prefix = $_POST['courseprefix'];
             $courseNum = $_POST['course-item'];
             $location = $_POST['location'];
-            $textbook=$_POST['textbook'];
+            $textbook = $_POST['textbook'];
             $isbn = $_POST['isbn'];
             $materials = $_POST['materials'];
             $other = $_POST['other'];
+            $days = array("Mon", "Tue", "Wed", "Thur", "Fri");
+            $mer = '';
+            $endHour='';
+            $mer2='';
+            foreach ($_POST['officeHoursStart'] as $key => $value) {
+                foreach ($_POST['officeHoursEnd'] as $key2 => $value2) {
+                    if (!empty($value) && !empty($value2)) {
+                        if (($_POST['officeHoursStart']) != "") {
+                            $strhour=$value;
+                             if ($value > 12) {
+                                    $mer = 'PM';
+                                 $strhour -= 12;
+                                } else if ($value < 12) {
+                                    $mer = 'AM';
+                                    if ($value == 0) {
+                                        $strhour = 12;
+                                    }
+                                } else {
+                                    $mer = 'PM';
+                                }
+                            $endHour=$value2;
+                            if ($value2 > 12) {
+                                $mer2 = 'PM';
+                                $endHour -= 12;
+                            } else if ($value2 < 12) {
+                                $mer = 'AM';
+                                if ($value2 == 0) {
+                                    $endHour = 12;
+                                }
+                            } else {
+                                $mer = 'PM';
+                            }
+//                           $hour = hrChanger($value);
+//                           $endHour = hrChanger($value2);
+
+                        }
+                    }
+
+                }         $officehrs .= ' ' . $key .": ". $strhour . $mer . "-"  . $endHour . $mer2 . "<br>";
+            }
+
+
+
+
+
+
+
+
+
+
+
+//            function hrChanger($value){
+//                if ($value > 12) {
+//                    $mer = 'PM';
+//                    $value -= 12;
+//                } else if ($value < 12) {
+//                    $mer = 'AM';
+//                    if ($value == 0) {
+//                        $value = 12;
+//                    }
+//                } else {
+//                    $mer = 'PM';
+//                }
+//            }
+
+
             $syllabus = new syllabus($first, $last, $email, $office, $officehrs,
                 $phone, $prefix, $courseNum, $meetingTimes, $location, $textbook, $isbn, $materials, $other);
 

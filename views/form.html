@@ -58,15 +58,16 @@
                     </div>
                     <div class="form-group">
                         <label>Office Hours:</label>
+                        <small>(Office hours should be between 7am to 7pm)</small>
                         <div class="form-check time-pickers">
                             <div class="md-form md-outline form-inline mb-3">
 
                                 <label class="form-check-label" for="mon">
                                     Mon &nbsp;
                                 </label>
-                                <input type="time" min="07:00" max="19:00"  class="form-control" id="mon">
+                                <input type="time" value = "" min="07:00" max="19:00"class="form-control" id="mon"  name="officeHoursStart[Mon]">
                                 <p>&nbsp; - &nbsp; </p>
-                                <input type="time"  min="07:00" max="19:00"  class="form-control">
+                                <input type="time"  min="07:00" max="19:00"  class="form-control"  name="officeHoursEnd[Mon]">
 
                             </div>
                         </div>
@@ -77,9 +78,9 @@
                                 <label class="form-check-label" for="tue">
                                     Tue &nbsp;
                                 </label>
-                                <input type="time" min="07:00" max="19:00"  class="form-control"id="tue">
+                                <input type="time" value = "" min="07:00" max="19:00"  class="form-control"id="tue" name="officeHoursStart[Tue]">
                                 <p>&nbsp; - &nbsp; </p>
-                                <input type="time" min="07:00" max="19:00"  class="form-control" >
+                                <input type="time" min="07:00" max="19:00" value = "" class="form-control"   name="officeHoursEnd[Tue]">
                             </div>
                         </div>
                         <div class="form-check time-pickers">
@@ -89,9 +90,9 @@
                                 <label class="form-check-label" for="wed">
                                     Wed &nbsp;
                                 </label>
-                                <input type="time" min="07:00" max="19:00"  class="form-control" id="wed">
+                                <input type="time" min="07:00" value = "" max="19:00"  class="form-control" id="wed"  name="officeHoursStart[Wed]">
                                 <p>&nbsp; - &nbsp; </p>
-                                <input type="time" min="07:00" max="19:00"   class="form-control">
+                                <input type="time" min="07:00" max="19:00" value = ""  class="form-control"   name="officeHoursEnd[Wed]">
                             </div>
                         </div>
                         <div class="form-check time-pickers">
@@ -100,9 +101,9 @@
                                 <label class="form-check-label" for="thur">
                                     Thur &nbsp;
                                 </label>
-                                <input type="time" min="07:00" max="19:00"  class="form-control" id="thur">
+                                <input type="time" min="07:00" max="19:00" value = "" class="form-control" id="thur"  name="officeHoursStart[Thur]">
                                 <p>&nbsp; - &nbsp; </p>
-                                <input type="time" min="07:00" max="19:00"   class="form-control">
+                                <input type="time" min="07:00" max="19:00" value = ""  class="form-control"   name="officeHoursEnd[Thur]">
                             </div>
                         </div>
                         <div class="form-check time-pickers">
@@ -110,10 +111,10 @@
                                 <label class="form-check-label" for="fri">
                                     Fri &nbsp;
                                 </label>
-                                <input type="time" min="07:00" max="19:00"  class="form-control" id="fri">
+                                <input type="time" min="07:00" max="19:00" value = "" class="form-control" id="fri"  name="officeHoursStart[Fri]">
                                 <p>&nbsp; - &nbsp; </p>
-                                <input type="time"  min="07:00" max="19:00"  class="form-control">
-                                <small>(Office hours should be between 7am to 7pm)</small>
+                                <input type="time"  min="07:00" max="19:00" value = "" class="form-control"  name="officeHoursEnd[Fri]">
+
                             </div>
                         </div>
                         <check if="{{ @errors['office-hrs'] }}">
@@ -131,7 +132,7 @@
                         <div class="col-sm">
                             <label for="courseprefix">Course Prefix:</label>
                             <select id="courseprefix" name="courseprefix" title="Choose a Course Prefix">
-                                <option selected="selected" value="-1">All prefixes…</option>
+                                <option selected="selected" value="TEST">All prefixes…</option>
                                 <option value="A SIM">A SIM</option>
                                 <option value="AAM">AAM</option>
                                 <option value="ACCT">ACCT</option>
@@ -242,6 +243,7 @@
                     </div>
                     <div class="form-group">
                         <label>Meeting Times:</label>
+                        <small>(Meeting hours should be between 7am to 7pm)</small>
                         <div class="form-check time-pickers">
                             <div class="md-form md-outline form-inline mb-3">
                                 <label class="form-check-label" for="monday">
@@ -292,7 +294,7 @@
                                 <p>&nbsp; - &nbsp; </p>
                                 <input type="time"  min="07:00" max="19:00"  class="form-control">
                             </div>
-                            <small>(Meeting hours should be between 7am to 7pm)</small>
+
                         </div>
                         <check if="{{ @errors['meeting-hrs'] }}">
                             <span class="err">{{ @errors['meeting-hrs'] }}</span>

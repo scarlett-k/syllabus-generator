@@ -231,23 +231,6 @@ class syllabus
     {
         return $this->_materials;
     }
-
-    /**
-     * @param mixed $isbn
-     */
-    public function setISBN($isbn)
-    {
-        $this->_isbn = $isbn;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getISBN()
-    {
-        return $this->_isbn;
-    }
-
     /**
      * @param mixed $materials
      */
@@ -256,6 +239,21 @@ class syllabus
         $this->_materials = $materials;
     }
 
+
+    /**
+     * @return mixed
+     */
+    public function getISBN()
+    {
+        return $this->_isbn;
+    }
+    /**
+     * @param mixed $isbn
+     */
+    public function setISBN($isbn)
+    {
+        $this->_isbn = $isbn;
+    }
     /**
      * @return mixed
      */

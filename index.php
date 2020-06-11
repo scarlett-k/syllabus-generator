@@ -29,14 +29,6 @@ $f3->route('GET /test', function (){
         if(array_search($data[11], $preArray) == false){
             array_push($preArray, $data[11]);
         }
-
-//        echo $data[11];
-//
-//        if($data[12] != ""){
-//            echo $data[12];
-//        }
-//
-//        echo ' '.$data[13].'<br>';
     }
     foreach($preArray as $array){
         echo $array.'<br>';

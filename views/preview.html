@@ -9,7 +9,7 @@
 
 <h1>GRC Syllabus Generator</h1>
 
-<div class="preview">
+<div class="preview" id="preview">
     <p>First name: {{ @SESSION['syllabus']->getFirstname() }}</p>
     <p>Last name: {{ @SESSION['syllabus']->getLastname() }}</p>
     <p>Phone: {{ @SESSION['syllabus']->getPhone() }}</p>
@@ -25,8 +25,8 @@
     <p>ISBN: {{ @SESSION['syllabus']->getISBN() }}</p>
     <p>Materials: {{ @SESSION['syllabus']->getMaterials() }}</p>
     <p>Other: {{ @SESSION['syllabus']->getOther() }}</p>
-    <button id="preview">Download Your Syllabus</button>
 </div>
+<button id="download" onclick="exportHTML()">Download Your Syllabus</button>
 </body>
 <include href="views/footer.html">
 </html>
