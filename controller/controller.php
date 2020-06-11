@@ -35,71 +35,35 @@ class Controller {
             $isbn = $_POST['isbn'];
             $materials = $_POST['materials'];
             $other = $_POST['other'];
-            $days = array("Mon", "Tue", "Wed", "Thur", "Fri");
-            $mer = '';
-            $endHour='';
-            $mer2='';
+            $strTime='';
+            $endTime='';
             foreach ($_POST['officeHoursStart'] as $key => $value) {
-                foreach ($_POST['officeHoursEnd'] as $key2 => $value2) {
-                    if (!empty($value) && !empty($value2)) {
-                        if (($_POST['officeHoursStart']) != "") {
-                            $strhour=$value;
-                             if ($value > 12) {
-                                    $mer = 'PM';
-                                 $strhour -= 12;
-                                } else if ($value < 12) {
-                                    $mer = 'AM';
-                                    if ($value == 0) {
-                                        $strhour = 12;
-                                    }
-                                } else {
-                                    $mer = 'PM';
-                                }
-                            $endHour=$value2;
-                            if ($value2 > 12) {
-                                $mer2 = 'PM';
-                                $endHour -= 12;
-                            } else if ($value2 < 12) {
-                                $mer = 'AM';
-                                if ($value2 == 0) {
-                                    $endHour = 12;
-                                }
-                            } else {
-                                $mer = 'PM';
-                            }
-//                           $hour = hrChanger($value);
-//                           $endHour = hrChanger($value2);
-
-                        }
+                if (!empty($_POST['officeHoursStart'])) {
+                    if (!empty($value) && !empty($_POST['officeHoursStart'][$key])) {
+                        $strTime = date("g:i a", strtotime($value));
+                        $endTime = date("g:i a", strtotime($_POST['officeHoursEnd'][$key]));
                     }
-
-                }         $officehrs .= ' ' . $key .": ". $strhour . $mer . "-"  . $endHour . $mer2 . "<br>";
+                    else {
+                        $strTime='';
+                        $endTime='';
+                    }
+                }
+                    $officehrs .= ' ' . $key .": ". $strTime . "-"  . $endTime . "<br>";
             }
 
-
-
-
-
-
-
-
-
-
-
-//            function hrChanger($value){
-//                if ($value > 12) {
-//                    $mer = 'PM';
-//                    $value -= 12;
-//                } else if ($value < 12) {
-//                    $mer = 'AM';
-//                    if ($value == 0) {
-//                        $value = 12;
-//                    }
-//                } else {
-//                    $mer = 'PM';
-//                }
-//            }
-
+            foreach ($_POST['meetingTimesStart'] as $key => $value) {
+                if (!empty($_POST['meetingTimesStart'])) {
+                    if (!empty($value) && !empty($_POST['meetingTimesStart'][$key])) {
+                        $strTime = date("g:i a", strtotime($value));
+                        $endTime = date("g:i a", strtotime($_POST['meetingTimesEnd'][$key]));
+                    }
+                    else {
+                        $strTime='';
+                        $endTime='';
+                    }
+                }
+                $meetingTimes .= ' ' . $key .": ". $strTime . "-"  . $endTime . "<br>";
+            }
 
             $syllabus = new syllabus($first, $last, $email, $office, $officehrs,
                 $phone, $prefix, $courseNum, $meetingTimes, $location, $textbook, $isbn, $materials, $other);

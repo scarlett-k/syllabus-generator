@@ -65,7 +65,7 @@
                                 <label class="form-check-label" for="mon">
                                     Mon &nbsp;
                                 </label>
-                                <input type="time" value = "" min="07:00" max="19:00"class="form-control" id="mon"  name="officeHoursStart[Mon]">
+                                <input type="time"  min="07:00" max="19:00"class="form-control" id="mon"  name="officeHoursStart[Mon]">
                                 <p>&nbsp; - &nbsp; </p>
                                 <input type="time"  min="07:00" max="19:00"  class="form-control"  name="officeHoursEnd[Mon]">
 
@@ -78,9 +78,9 @@
                                 <label class="form-check-label" for="tue">
                                     Tue &nbsp;
                                 </label>
-                                <input type="time" value = "" min="07:00" max="19:00"  class="form-control"id="tue" name="officeHoursStart[Tue]">
+                                <input type="time"  min="07:00" max="19:00"  class="form-control"id="tue" name="officeHoursStart[Tue]">
                                 <p>&nbsp; - &nbsp; </p>
-                                <input type="time" min="07:00" max="19:00" value = "" class="form-control"   name="officeHoursEnd[Tue]">
+                                <input type="time" min="07:00" max="19:00"  class="form-control"   name="officeHoursEnd[Tue]">
                             </div>
                         </div>
                         <div class="form-check time-pickers">
@@ -90,9 +90,9 @@
                                 <label class="form-check-label" for="wed">
                                     Wed &nbsp;
                                 </label>
-                                <input type="time" min="07:00" value = "" max="19:00"  class="form-control" id="wed"  name="officeHoursStart[Wed]">
+                                <input type="time" min="07:00"  max="19:00"  class="form-control" id="wed"  name="officeHoursStart[Wed]">
                                 <p>&nbsp; - &nbsp; </p>
-                                <input type="time" min="07:00" max="19:00" value = ""  class="form-control"   name="officeHoursEnd[Wed]">
+                                <input type="time" min="07:00" max="19:00"   class="form-control"   name="officeHoursEnd[Wed]">
                             </div>
                         </div>
                         <div class="form-check time-pickers">
@@ -101,9 +101,9 @@
                                 <label class="form-check-label" for="thur">
                                     Thur &nbsp;
                                 </label>
-                                <input type="time" min="07:00" max="19:00" value = "" class="form-control" id="thur"  name="officeHoursStart[Thur]">
+                                <input type="time" min="07:00" max="19:00"  class="form-control" id="thur"  name="officeHoursStart[Thur]">
                                 <p>&nbsp; - &nbsp; </p>
-                                <input type="time" min="07:00" max="19:00" value = ""  class="form-control"   name="officeHoursEnd[Thur]">
+                                <input type="time" min="07:00" max="19:00"   class="form-control"   name="officeHoursEnd[Thur]">
                             </div>
                         </div>
                         <div class="form-check time-pickers">
@@ -111,9 +111,9 @@
                                 <label class="form-check-label" for="fri">
                                     Fri &nbsp;
                                 </label>
-                                <input type="time" min="07:00" max="19:00" value = "" class="form-control" id="fri"  name="officeHoursStart[Fri]">
+                                <input type="time" min="07:00" max="19:00"  class="form-control" id="fri"  name="officeHoursStart[Fri]">
                                 <p>&nbsp; - &nbsp; </p>
-                                <input type="time"  min="07:00" max="19:00" value = "" class="form-control"  name="officeHoursEnd[Fri]">
+                                <input type="time"  min="07:00" max="19:00"  class="form-control"  name="officeHoursEnd[Fri]">
 
                             </div>
                         </div>
@@ -132,7 +132,7 @@
                         <div class="col-sm">
                             <label for="courseprefix">Course Prefix:</label>
                             <select id="courseprefix" name="courseprefix" title="Choose a Course Prefix">
-                                <option selected="selected" value="TEST">All prefixes…</option>
+                                <option selected="selected" value="">All prefixes…</option>
                                 <option value="A SIM">A SIM</option>
                                 <option value="AAM">AAM</option>
                                 <option value="ACCT">ACCT</option>
@@ -249,9 +249,9 @@
                                 <label class="form-check-label" for="monday">
                                     Mon &nbsp;
                                 </label>
-                                <input type="time" min="07:00" max="19:00"  class="form-control" id="monday">
+                                <input type="time" min="07:00" max="19:00" name="meetingTimesStart[Mon]" class="form-control" id="monday">
                                 <p>&nbsp; - &nbsp; </p>
-                                <input type="time" min="07:00" max="19:00"   class="form-control">
+                                <input type="time" min="07:00" max="19:00"  name="meetingTimesEnd[Mon]"   class="form-control">
                             </div>
                         </div>
                         <div class="form-check time-pickers">
@@ -259,9 +259,9 @@
                                 <label class="form-check-label" for="tuesday">
                                     Tue &nbsp;
                                 </label>
-                                <input type="time" min="07:00" max="19:00" class="form-control" id="tuesday">
+                                <input type="time" min="07:00" max="19:00" name="meetingTimesStart[Tue]"  class="form-control" id="tuesday">
                                 <p>&nbsp; - &nbsp; </p>
-                                <input type="time" min="07:00" max="19:00"  class="form-control">
+                                <input type="time" min="07:00" max="19:00"  name="meetingTimesEnd[Tue]"  class="form-control">
                             </div>
                         </div>
                         <div class="form-check  time-pickers">
@@ -270,9 +270,9 @@
                                 <label class="form-check-label" for="wednesday">
                                     Wed &nbsp;
                                 </label>
-                                <input type="time" min="07:00" max="19:00"  class="form-control" id="wednesday">
+                                <input type="time" min="07:00" max="19:00"  name="meetingTimesStart[Wed]"  class="form-control" id="wednesday">
                                 <p>&nbsp; - &nbsp; </p>
-                                <input type="time" min="07:00" max="19:00"  class="form-control">
+                                <input type="time" min="07:00" max="19:00"  name="meetingTimesEnd[Wed]"  class="form-control">
                             </div>
                         </div>
                         <div class="form-check time-pickers">
@@ -280,9 +280,9 @@
                                 <label class="form-check-label" for="thursday">
                                     Thur &nbsp;
                                 </label>
-                                <input type="time" min="07:00" max="19:00"  class="form-control" id="thursday">
+                                <input type="time" min="07:00" max="19:00" name="meetingTimesStart[Thur]"  class="form-control" id="thursday">
                                 <p>&nbsp; - &nbsp; </p>
-                                <input type="time"  min="07:00" max="19:00"  class="form-control">
+                                <input type="time"  min="07:00" max="19:00"  name="meetingTimesEnd[Thur]"  class="form-control">
                             </div>
                         </div>
                         <div class="form-check time-pickers">
@@ -290,9 +290,9 @@
                                 <label class="form-check-label" for="friday">
                                     Fri &nbsp;
                                 </label>
-                                <input type="time" min="07:00" max="19:00"  class="form-control" id="friday">
+                                <input type="time" min="07:00" max="19:00" name="meetingTimesStart[Fri]"  class="form-control" id="friday">
                                 <p>&nbsp; - &nbsp; </p>
-                                <input type="time"  min="07:00" max="19:00"  class="form-control">
+                                <input type="time"  min="07:00" max="19:00" name="meetingTimesEnd[Fri]"  class="form-control">
                             </div>
 
                         </div>
