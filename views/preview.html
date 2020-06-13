@@ -2,31 +2,234 @@
 <html lang="en">
 <head>
     <include href="views/header.html">
-    <title>GRC Syllabus Generator</title>
-</head>
+        <title>GRC Syllabus Generator</title>
+        </head>
 <body>
 <img src="images/logo.png" alt = "GRC Logo" style="float: left;  margin-bottom: 30px; margin-right: 20px" />
 
 <h1>GRC Syllabus Generator</h1>
 
 <div class="preview" id="preview">
-    <p>First name: {{ @SESSION['syllabus']->getFirstname() }}</p>
-    <p>Last name: {{ @SESSION['syllabus']->getLastname() }}</p>
-    <p>Phone: {{ @SESSION['syllabus']->getPhone() }}</p>
+    <h1>Course Syllabus</h1>
+    <p><h3>Course Information (Mandatory Location)</h3>
+    <strong>Title of course:</strong> <br>
+    <strong>Course:</strong><p> {{ @SESSION['syllabus']->getPrefix() }} {{ @SESSION['syllabus']->getCourseNum() }}</p><br>
+    <p><strong>Credit Hours:</strong></p><br>
+    <p><strong>Prerequisites:</strong></p><br>
+    <p><strong>Meeting times:</strong>{{ @SESSION['syllabus']->getMeetingTimes() }}</p><br>
+    <p> <strong>Class location:</strong> {{ @SESSION['syllabus']->getLocation() }}</p>
+    <h3> Instructor Information & Response Times </h3>
+    • <strong>Instructor’s name:</strong> {{ @SESSION['syllabus']->getFirstname() }} {{ @SESSION['syllabus']->getLastname() }} <br>
+    • <strong>Office location:</strong> {{ @SESSION['syllabus']->getOffice() }}<br>
+    • <strong>Office hours:</strong> {{ @SESSION['syllabus']->getOfficeHours() }}
+    • <strong>Office phone number:</strong>  {{ @SESSION['syllabus']->getPhone() }}<br>
+    • <strong>Email:</strong> {{ @SESSION['syllabus']->getEmail() }} <br>
 
-    <p>Email: {{ @SESSION['syllabus']->getEmail() }}</p>
-    <p>Office location: {{ @SESSION['syllabus']->getOffice() }}</p>
-    <p>Course: {{ @SESSION['syllabus']->getPrefix() }} {{ @SESSION['syllabus']->getCourseNum() }}</p>
+    <h5>Assigned Texts & Required Course Materials</h5>
+    <!--        (Mandatory Location)-->
+    • <b>Required textbooks:</b>  {{ @SESSION['syllabus']->getTextbook() }}<br>
+    • <b>ISBN:</b> {{ @SESSION['syllabus']->getISBN() }}<br>
+    • <b>Course Materials:</b> {{ @SESSION['syllabus']->getMaterials() }}<br>
+    <!--        • Readings or other resources such as videos, CD ROM, etc. (titles, required or optional,-->
+    <!--        where to locate the resources)-->
+    <!--        • Online resources & how they are used (Canvas, Publisher Materials, software, web-->
+    <!--        sites, listserv, newsgroup, etc.)-->
+    </p>
+    <h3>Course Description</h3>
+    • General description of the course verbatim from the CAR<br>
+    • Additional description of the course as instructor sees fit.<br>
+    • Indicate general education requirements met by course (if appropriate)<br>
 
-    <p>Office hours: {{ @SESSION['syllabus']->getOfficeHours() }}</p>
-    <p>Meeting times: {{ @SESSION['syllabus']->getMeetingTimes() }}</p>
-    <p>Class location: {{ @SESSION['syllabus']->getLocation() }}</p>
-    <p>Textbook(s): {{ @SESSION['syllabus']->getTextbook() }}</p>
-    <p>ISBN: {{ @SESSION['syllabus']->getISBN() }}</p>
-    <p>Materials: {{ @SESSION['syllabus']->getMaterials() }}</p>
-    <p>Other: {{ @SESSION['syllabus']->getOther() }}</p>
+    <h3>Modality Statement</h3>
+    Indicate the modality of the course and provide further explanation and support regarding hybrid
+    or online course content. <br>Examples follow:
+    This course is taught face to face and meets __________ from _______________.
+    This course is a hybrid course which meets __________ from ____________, and requires your
+    engagement and participation in specific number of online activities and assignments in our
+    Canvas space
+    This course is taught online and requires your frequent/regular engagement and participation in
+    our Canvas space where you will complete both online activities and assignments.
+    </p>
+    <h3> Learning Outcomes </h3>
+
+    <p>Campus-wide outcomes included on the CAR must be indicated on the syllabus verbatim. You
+    may include additional campus-wide outcomes from those on the CAR, but you may not omit
+    any listed on the CAR. Only the definition of the campus wide outcome, not the competencies
+    must be listed. Which assignments will demonstrate each campus-wide learning outcome must
+    also be indicated on the syllabus. An example of this indication follows the definition of the
+    campus wide outcome below, but you may make these indications as you wish.
+    Quantitative and Symbolic Reasoning encompasses abilities necessary for a student to become
+    literate in today’s technological world. Quantitative reasoning begins with basic skills and
+    extends to problem solving. This outcome will be assessed by the course exams and final
+        exam.</p><br>
+    <!--        Updated 10/24/19-->
+    <h3>Program Outcomes</h3>
+    Program outcomes included on the CAR must be indicated on the syllabus verbatim. You may
+    include additional program outcomes from those on the CAR, but you may not omit any listed on
+    the CAR. Which assignments will demonstrate each program outcome must be indicated on the
+    syllabus.
+    Students will correctly implement the quantitative or symbolic reasoning methods that are
+    appropriate for solving stoichiometry and equilibrium problems. This outcome will be assessed
+    by laboratory reports.<br>
+    <h3> Campus Outcomes</h3>
+    Course outcomes included on the CAR must be indicated on the syllabus verbatim. You may
+    include additional course outcomes from those on the CAR, but you may not omit any listed on
+    the CAR. Which assignments will demonstrate each course outcome must be indicated on the
+    syllabus.
+    Classify and name organic compounds. This outcome will be assessed by homework
+    assignments.
+
+
+    <h3> Course Policies </h3>
+    • Missed exams or assignments<br>
+    • Policies for dress during a lab, etc. (Mandatory only when applicable to course content)<br>
+    <h3>Mandatory Reporter Statement Verbatim:</h3>
+    GRC faculty and staff are mandatory reporters
+    of child abuse and neglect and must report suspected abuse or neglect to the proper
+    authorities.<br>
+    • GRC Student Code of Conduct (https://www.greenriver.edu/students/judicial-programs/)<br>
+    • Student Complaints (https://www.greenriver.edu/students/academics/instructionstudent-complaint-process/)<br>
+    • Academic Honesty<br>
+
+
+    A statement regarding academic honesty is a required part of the syllabus. The following
+    is an example of language you can use in your syllabi to address academic honesty:<br>
+    In academically honest writing or speaking, the student documents their source of
+    information whenever: another person's exact words are quoted; another person's idea,
+    opinion or theory is used through paraphrase; and facts, statistics, or other illustrative
+    materials are borrowed.
+    In order to complete academically honest work, students should: acknowledge all
+    sources according to the method of citation preferred by the instructor; write as much as
+    possible from one's own understanding of the materials and in one's own voice; ask an
+    authority on the subject, such as the instructor who assigned the work; and seek help
+    from academic student services such as the library and/or writing center.
+    Two types of academic dishonesty are plagiarism and cheating. Plagiarism occurs when
+    you submit someone else’s ideas or words as your own. Cutting and/or copying and then
+    pasting items from the internet, like Wikipedia, into your work are examples of
+    plagiarism. Cheating occurs when you copy someone else’s answers or work and submit
+    them as your own. Taking answers from your peer’s or friend’s work or turning in
+    someone else’s work as your own are examples of cheating.<br>
+    Updated 10/24/19
+    Instructor should go on to have their own policy that addresses course specific concerns
+    and/or provides examples of plagiarism scenarios.
+    Should I suspect that you have plagiarized, cheated, and/or fabricated, I will talk with you
+    one-on-one. If you are found guilty of academic dishonesty you will receive a zero for the
+    course.<br>
+    • Reasonable Accommodations for Religion/Conscience Verbatim: Students who will be
+    absent from course activities due to reasons of faith or conscience may seek reasonable
+    accommodations so that grades are not impacted. Such requests must be made within
+    the first two weeks of the course and should follow the procedures listed under Student
+    Procedures on the College Holiday and Leave Policy website.
+    https://www.greenriver.edu/campus/policies-and-procedures/student-affairs-policies/sa91-college-holiday-leave-policy/. Please note that requests must be made to the office
+    of the Vice President of Student Affairs in addition to your instructor.
+    </p>
+
+    <h3>  Accessibility Statement </h3>
+    The following statement from the Publication Statements webpage must be included verbatim
+    but additional language may be added as desired.
+    Green River College is committed to creating a positive, accessible environment for its students,
+    employees, and visitors. The College continues to increase the accessibility and usability of all
+    college resources to meet the needs of its diverse community.
+    </p>
+    <p>
+    <h3> Accommodation Statement</h3>
+    The following statement from the Publication Statements webpage must be included verbatim
+    but additional language may be added as desired.
+    Green River College is committed to providing access to all who visit, work and study on
+    campus. The College will provide reasonable accommodations for individuals with disabilities,
+    with advance notice of need. If you require accommodations, please contact Disability Support
+    Services as soon as possible to determine eligibility and/or request accommodations.
+    Updated 10/24/19
+    Accommodations are determined on a case-by-case basis. Please contact Disability Support by
+    email at dss@greenriver.edu; by phone at 253-833-9111, ext. 2631; TTY 253-288-3359; or in
+    person at the Student Affairs and Success Center, Room 210, to request accommodations. For
+    additional information, please visit www.greenriver.edu/dss.
+    The accommodations authorized on your forms should be discussed with your instructor. All
+    discussions will remain confidential. Accommodations are not provided retroactively, so it is
+    essential to discuss your needs at the beginning of the quarter. Additionally, only
+    accommodations approved by Disability Support Services will be provided. This syllabus is
+    available in alternate formats upon request.
+    </p>
+
+    <h3>Grading Scale</h3>
+    You must have a grading scale that awards final grades in terms of a 4.0 scale. Your scale
+    cannot award a grade more than a 4.0 or less than a 1.0 other than a 0.0. If your program uses
+    a Pass, Satisfactory or No Credit grading scale your scale should reflect this rather than grade
+    points. What follows is an example grading statement and four example grading scales.
+    Grading Statement: Grades will be assigned according to the course grade breakdown (see
+    below). The total points earned as a percentage of the total points possible will determine a
+    student’s final course grade. Points earned will include the aforementioned outcome
+    assessment components as well as class participation, leadership, and group work. The
+    number of points earned will determine the student’s overall average for the quarter. The
+    percentage score will be translated as shown below:
+    <p>
+    <h3>Course Schedule</h3>
+    Some kind of course schedule should be included to indicate a general idea of when course
+    topics will be covered and assignments are due. The specificity of this schedule is at the
+    discretion of the instructor and it is recommended to include a statement that the schedule is
+    subject to change. The following topics are suggestions for the course schedule:
+    • Daily or weekly schedule of topics to be covered
+    • Due dates for daily assignments such as readings, projects, etc.
+    • Dates for exams, quizzes, papers, and other forms of assessment
+    • Dates of required or recommended special events
+    • Deadlines for Refund, Withdrawal, P/NC scores, etc.
+    </p>
+    <p>
+    <h3> Campus Resources</h3>
+    • Paying for School: Visit the Financial Aid office (http://www.greenriver.edu/studentaffairs/financial-aid.htm) for help with loans, work-study, scholarships, etc.<br>
+    • Succeeding in Class: There are a number of tutoring resources<br>
+    (http://www.greenriver.edu/student-affairs/tutoring-and-resources.htm) available to you
+    on campus including the Writing Center (http://www.greenriver.edu/studentaffairs/tutoring-and-resources/writing-center.htm), the Math Learning Center
+    (https://www.greenriver.edu/students/academics/tutoring-resources/math-learningcenter/) and the Public Speaking Center
+    (https://www.greenriver.edu/students/academics/tutoring-resources/public-speakingcenter/).<br>
+    <!--        Updated 10/24/19-->
+    • Caring for Mind & Body: As a Green River student, you have access to Counseling &
+    Health Services (http://www.greenriver.edu/student-affairs/counseling-and-healthservices.htm) intramural sports, fitness classes, and the Recreation and Athletics
+    Center (https://www.greenriver.edu/students/get-involved/recreation-and-athleticscenter/).<br>
+    • Deciding What’s Next: Get the help you need to transfer successfully at the College
+    Transfer Center (http://www.greenriver.edu/student-affairs/college-transfer-center.htm)
+    or visit the Career and Advising Center
+    (https://www.greenriver.edu/students/academics/career-advising-center/) for help
+    deciding what to do when you finish at Green River.<br>
+    • Meeting Friends: Check out what the office of Diversity, Equity & Inclusion
+    (http://www.greenriver.edu/student-affairs/diversity-equity-and-inclusion.htm) is up to,
+    and also be sure to explore the clubs and organizations
+    (http://www.greenriver.edu/campus-life/clubs-and-organizations.htm) on Campus by
+    visiting the Student Life Office. If you are a veteran or a veteran family, consider
+    connecting with Veterans Services (http://www.greenriver.edu/student-affairs/veteransservices.htm).<br>
+    • Technical Support: Contact the office of eLearning
+    (http://www.greenriver.edu/academics/elearning.htm) for Canvas support or visit the tech
+    support desks in the Holman Library or Tech Center.<br>
+    • Campus Safety: Campus Safety (http://www.greenriver.edu/about-us/campus-safety.htm)
+    provides escorts to and from dark parking lots just give them a ring at 253-833-9111 x
+    2250<br>
+    • Accessing textbooks: Generally you buy your textbooks in the bookstore. The Library
+    (https://libguides.greenriver.edu/textbooks) has additional purchasing, rental, and
+    borrowing options, including the office of Diversity, Equity & Inclusion
+    (http://www.greenriver.edu/student-affairs/diversity-equity-and-inclusion.htm) and books
+    on reserve in the Holman Library.<br>
+    • Getting Support: There are lots of student support organizations on campus including...<br>
+    • TRiO Student Support Services at Green River College serves 200 low-income, first
+    generation students and/or students with disabilities each year. Students who
+    would like more information can reach the TRiO office via email
+    (triodepartment@greenriver.edu) or call (253) 833 – 9111 (ext. 2655).<br>
+    • The Office of Diversity, Equity & Inclusion helps bridge the education gap for
+    historically underserved and underrepresented students. ODEI staff utilize
+    referral services to help guide and direct constituents and provide CAP services
+    to ensure: access, retention, academic and social success of our students.
+    Students may contact us at extension 2803 or e-mail
+    (DBetancourt@greenriver.edu).
+    </p>
+
+    <footer>
+        This document is available in alternative formats to individuals with disabilities by contacting Disability Support Services at 253-833-9111, ext. 2631; TTY 253-288-3359; or by email at dss@greenriver.edu.
+
+        Green River College is an equal opportunity educator and employer. Learn more at www.greenriver.edu/accessibility.</p>
+    </footer>
+
 </div>
 <button id="download" onclick="exportHTML()">Download Your Syllabus</button>
 </body>
 <include href="views/footer.html">
 </html>
+

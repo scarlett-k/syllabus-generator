@@ -20,20 +20,13 @@ $f3->route('GET /preview', function () {
 });
 
 $f3->route('GET /test', function (){
-    $file = fopen ('resources/courses-list-2020.csv', 'r');
-    $preArray = array();
-    while(! feof($file))
-    {
-        $data = fgetcsv($file);
+    $test = new csv();
+    $course = 'GERM&121';
+    $array = $test->getRow($course);
 
-        if(array_search($data[11], $preArray) == false){
-            array_push($preArray, $data[11]);
-        }
+    foreach ($array as $element){
+        echo $element.'<br>';
     }
-    foreach($preArray as $array){
-        echo $array.'<br>';
-    }
-    fclose($file);
 
     $view = new Template();
     echo $view->render("views/test.html");

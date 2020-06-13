@@ -23,7 +23,6 @@ class Controller {
             $phone = $_POST['phone'];
             $office = $_POST['office'];
 //            $course  = $_POST['courseprefix'] /* + ' ' + $_POST['course-item']*/;
-            $location = $_POST['location'];
 //                $f3->set('office-location', 'offLocation');
             $email = $_POST['email'];
             $officehrs = "";
@@ -42,13 +41,17 @@ class Controller {
                     if (!empty($value) && !empty($_POST['officeHoursStart'][$key])) {
                         $strTime = date("g:i a", strtotime($value));
                         $endTime = date("g:i a", strtotime($_POST['officeHoursEnd'][$key]));
+                        $key.= ": ";
+                        $strTime.="-";
+                        $endTime.="<br>";
                     }
                     else {
                         $strTime='';
                         $endTime='';
+                        $key ='';
                     }
                 }
-                    $officehrs .= ' ' . $key .": ". $strTime . "-"  . $endTime . "<br>";
+                    $officehrs .= ' ' . $key . $strTime . $endTime ;
             }
 
             foreach ($_POST['meetingTimesStart'] as $key => $value) {
@@ -56,13 +59,18 @@ class Controller {
                     if (!empty($value) && !empty($_POST['meetingTimesStart'][$key])) {
                         $strTime = date("g:i a", strtotime($value));
                         $endTime = date("g:i a", strtotime($_POST['meetingTimesEnd'][$key]));
+                        $key.= ": ";
+                        $strTime.="-";
+                        $endTime.="<br>";
                     }
                     else {
                         $strTime='';
                         $endTime='';
+                        $key ='';
                     }
                 }
-                $meetingTimes .= ' ' . $key .": ". $strTime . "-"  . $endTime . "<br>";
+
+                $meetingTimes .=  $key. $strTime . $endTime;
             }
 
             $syllabus = new syllabus($first, $last, $email, $office, $officehrs,
@@ -76,7 +84,7 @@ class Controller {
             $_SESSION = array();
         }
         else {
-            var_dump($_POST);
+//            var_dump($_POST);
 //                $this->_f3->set('errors', $this->_validator->getErrors());
 //                var_dump($this->_validator->getErrors());
             $this->_f3->set('preview', $_POST);
