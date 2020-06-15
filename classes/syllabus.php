@@ -1,7 +1,7 @@
 <?php
 /**
  * Created in PhpStorm
- * @author Brian Kiehn
+ * @authors Brian Kiehn, Cody Zipp, Scarlett Kim
  * @date 5/12/2020
  * @version 1.0
  * syllabus.php
@@ -64,7 +64,7 @@ class syllabus
         $this->_other = $_other;
     }
 
-
+    //getters and setters
     /**
      * @return mixed
      */
