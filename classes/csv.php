@@ -4,8 +4,8 @@
  * @author Brian Kiehn
  * @date 6/13/2020
  * @version 1.0
- * csv.php
- * syllabus-generator
+ * csv.php - class that interacts directly with the csv file
+ * team-brian
  */
 
 
@@ -16,6 +16,9 @@ class csv
     private $coursesArray = array();
     private $row = array();
 
+    /**
+     * csv constructor.
+     */
     public function __construct(){
         $this->csv = 'resources/courses-list-2020.csv';
         $file = fopen ($this->csv, 'r');
@@ -39,6 +42,7 @@ class csv
     }
 
     /**
+     * gets csv file path
      * @return mixed
      */
     public function getCsv()
@@ -47,6 +51,7 @@ class csv
     }
 
     /**
+     * gets array of prefixes (unique values)
      * @return array
      */
     public function getPreArray()
@@ -55,6 +60,7 @@ class csv
     }
 
     /**
+     * gets array of all the courses availible in the course catalog
      * @return array
      */
     public function getCoursesArray()
@@ -63,8 +69,9 @@ class csv
     }
 
     /**
-     * @param $course
-     * @return mixed
+     * gets the row that contains the course
+     * @param $course - course item (prefix)(&, if it exists)(item #)
+     * @return mixed - row (success) || null (fail)
      */
     public function getRow($course)
     {
