@@ -2,10 +2,10 @@
 
 /**
  * Created in PhpStorm
- * @author Brian Kiehn
+ * @author Brian Kiehn, Cody Zipp
  * @date 5/1/2020
  * @version 1.0
- * validate.php
+ * validate.php - currently broken and unimplemented
  * team-brian
  */
 class Validate
