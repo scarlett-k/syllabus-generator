@@ -20,9 +20,13 @@ class syllabus
     private $_course;
     private $_meetingTimes;
     private $_location;
-    private $_prerequ;
+    private $_prefix;
+    private $_courseNum;
     private $_textbook;
+    private $_isbn;
     private $_materials;
+    private  $_other;
+
 
     /**
      * syllabus constructor.
@@ -32,13 +36,17 @@ class syllabus
      * @param $_office
      * @param $_officeHours
      * @param $_phone
-     * @param $_course
+     * @param $_prefix
      * @param $_meetingTimes
      * @param $_location
+     * @param $_courseNum
      * @param $_textbook
+     * @param $_materials
+     *  @param $_isbn
+     *  @param $_other
      */
     public function __construct($_firstname, $_lastname, $_email, $_office, $_officeHours, $_phone,
-                                $_course, $_meetingTimes, $_location, $_textbook)
+                                $_prefix, $_courseNum, $_meetingTimes, $_location, $_textbook, $_isbn, $_materials, $_other)
     {
         $this->_firstname = $_firstname;
         $this->_lastname = $_lastname;
@@ -46,10 +54,14 @@ class syllabus
         $this->_office = $_office;
         $this->_officeHours = $_officeHours;
         $this->_phone = $_phone;
-        $this->_course = $_course;
+        $this->_prefix = $_prefix;
+        $this->_courseNum = $_courseNum;
         $this->_meetingTimes = $_meetingTimes;
         $this->_location = $_location;
         $this->_textbook = $_textbook;
+        $this->_isbn = $_isbn;
+        $this->_materials = $_materials;
+        $this->_other = $_other;
     }
 
 
@@ -136,18 +148,36 @@ class syllabus
     /**
      * @return mixed
      */
-    public function getCourse()
+    public function getPrefix()
     {
-        return $this->_course;
+        return $this->_prefix;
     }
 
     /**
-     * @param mixed $course
+     * @param mixed $prefix
      */
-    public function setCourse($course)
+    public function setPrefix($prefix)
     {
-        $this->_course = $course;
+        $this->_prefix = $prefix;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getCourseNum()
+    {
+        return $this->_courseNum;
+    }
+
+    /**
+     * @param mixed $courseNum
+     */
+    public function setCourseNum($courseNum)
+    {
+        $this->_courseNum = $courseNum;
+    }
+
+
 
     /**
      * @return mixed
@@ -181,21 +211,6 @@ class syllabus
         $this->_location = $location;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getPrerequ()
-    {
-        return $this->_prerequ;
-    }
-
-    /**
-     * @param mixed $prerequ
-     */
-    public function setPrerequ($prerequ)
-    {
-        $this->_prerequ = $prerequ;
-    }
 
     /**
      * @return mixed
@@ -212,15 +227,10 @@ class syllabus
     {
         $this->_textbook = $textbook;
     }
-
-    /**
-     * @return mixed
-     */
     public function getMaterials()
     {
         return $this->_materials;
     }
-
     /**
      * @param mixed $materials
      */
@@ -229,6 +239,21 @@ class syllabus
         $this->_materials = $materials;
     }
 
+
+    /**
+     * @return mixed
+     */
+    public function getISBN()
+    {
+        return $this->_isbn;
+    }
+    /**
+     * @param mixed $isbn
+     */
+    public function setISBN($isbn)
+    {
+        $this->_isbn = $isbn;
+    }
     /**
      * @return mixed
      */
@@ -244,5 +269,19 @@ class syllabus
     {
         $this->_phone = $phone;
     }
+    /**
+     * @return mixed
+     */
+    public function getOther()
+    {
+        return $this->_other;
+    }
 
+    /**
+     * @param mixed $other
+     */
+    public function setOther($other)
+    {
+        $this->_other = $other;
+    }
 }

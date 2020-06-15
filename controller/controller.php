@@ -13,13 +13,26 @@ class Controller {
 
     function home($f3)
     {
+<<<<<<< HEAD
             $csv = new csv();
             $f3->set('prefix', $csv->getPreArray());
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+=======
+//        var_dump($_POST);
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+//            $this->_validator = new Validate($f3);
+
+//            if ($this->_validator->validInfo()) {
+>>>>>>> f9b411bc072e2e972dd118436712f9ff6bba45d5
             $first = $_POST['firstName'];
             $last = $_POST['lastName'];
             $phone = $_POST['phone'];
             $office = $_POST['office'];
+<<<<<<< HEAD
+=======
+//            $course  = $_POST['courseprefix'] /* + ' ' + $_POST['course-item']*/;
+//                $f3->set('office-location', 'offLocation');
+>>>>>>> f9b411bc072e2e972dd118436712f9ff6bba45d5
             $email = $_POST['email'];
             $officehrs = "";
             $meetingTimes = $_POST['meeting-hrs'];
@@ -32,7 +45,10 @@ class Controller {
             $other = $_POST['other'];
             $strTime='';
             $endTime='';
+<<<<<<< HEAD
             $policies = $_POST['policies'];
+=======
+>>>>>>> f9b411bc072e2e972dd118436712f9ff6bba45d5
             foreach ($_POST['officeHoursStart'] as $key => $value) {
                 if (!empty($_POST['officeHoursStart'])) {
                     if (!empty($value) && !empty($_POST['officeHoursStart'][$key])) {
@@ -69,12 +85,21 @@ class Controller {
 
                 $meetingTimes .=  $key. $strTime . $endTime;
             }
+<<<<<<< HEAD
 
             $syllabus = new syllabus($first, $last, $email, $office, $officehrs,
                 $phone, $prefix, $courseNum, $meetingTimes, $location, $textbook, $isbn, $materials, $policies);
 
             $_SESSION['syllabus'] = $syllabus;
 
+=======
+
+            $syllabus = new syllabus($first, $last, $email, $office, $officehrs,
+                $phone, $prefix, $courseNum, $meetingTimes, $location, $textbook, $isbn, $materials, $other);
+
+            $_SESSION['syllabus'] = $syllabus;
+
+>>>>>>> f9b411bc072e2e972dd118436712f9ff6bba45d5
 
             $f3->reroute('/preview');
 

@@ -18,4 +18,17 @@ $f3->route('GET|POST /', function ($f3){
 $f3->route('GET /preview', function () {
     $GLOBALS['controller']->preview();
 });
+
+$f3->route('GET /test', function (){
+    $test = new csv();
+    $course = 'GERM&121';
+    $array = $test->getRow($course);
+
+    foreach ($array as $element){
+        echo $element.'<br>';
+    }
+
+    $view = new Template();
+    echo $view->render("views/test.html");
+});
 $f3->run();

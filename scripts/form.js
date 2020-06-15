@@ -30,7 +30,7 @@ $("#add-textbook").click(function(){
     $('#add-mats').click(function(){
         matRC = $('#mats-table tr').length;
         var refRow = '<tr>\n' +
-            `<td> <label for="materials">Materials:</label><input type="text" class="form-control" id="materials${matRC}" name="materials"></td>\n` +
+            `<td> <label for="materials">Additional materials:</label><input type="text" class="form-control" id="materials${matRC}" name="materials"></td>\n` +
             '<td> <button type="button" class="btn btn-danger removeMat">X</button></td>' +
             '</tr>';
         $('#mats-table').append(refRow);
