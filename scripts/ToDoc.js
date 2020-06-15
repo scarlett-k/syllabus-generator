@@ -1,3 +1,11 @@
+/**
+ * Created in PhpStorm
+ * @author Cody Zipp
+ * @date 6/13/2020
+ * @version 1.0
+ * ToDoc.js - downloads Microsoft Word doc
+ * team-brian
+ */
 function exportHTML() {
     var header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' "+
         "xmlns:w='urn:schemas-microsoft-com:office:word' "+
