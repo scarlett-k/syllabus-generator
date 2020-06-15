@@ -1,3 +1,11 @@
+/**
+ * Created in PhpStorm
+ * @author Cody Zipp
+ * @date 5/1/2020
+ * @version 1.0
+ * validation.js - client-side validation
+ * team-brian
+ */
 document.getElementById("syllabus-gen").onsubmit = validate;
 
 function validate() {
