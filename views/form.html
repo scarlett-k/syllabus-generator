@@ -3,7 +3,7 @@
 <head>
     <!-- header -->
     <include href="views/header.html">
-        <title>GRC Syllabus Generator</title>
+        <title class = grey>GRC Syllabus Generator</title>
         </head>
 <body>
 <img src="images/logo.png" alt = "GRC Logo" style="float: left;  margin-bottom: 30px; margin-right: 20px" />
@@ -13,14 +13,16 @@
         <div class="row" id="divs">
             <div class="col-sm-3">
                 <fieldset class="form-group mt-5">
-                    <legend>Instructor Info</legend>
+                    <h5 class="full-width">
+                        <div class="wrap">Instructor Info</div>
+                    </h5>
                     <div class="form-group">
                         <label for="firstName">First name:</label>
                         <input type="text" class="form-control"
                                id="firstName" name="firstName" value = "{{ @firstname }}">
 
-                            <span class="err">{{ @errors['firstname'] }}</span>
-                            <span class="error"></span>
+                        <span class="err">{{ @errors['firstname'] }}</span>
+                        <span class="error"></span>
                     </div>
                     <div class="form-group">
                         <label for="lastName">Last name:</label>
@@ -39,84 +41,6 @@
                         </check>
                     </div>
                     <div class="form-group">
-                        <label for="office">Office location: </label>
-                        <input type="text" class="form-control"
-                               id="office" name="office" >
-                        <check if="{{ @errors['location'] }}">
-                            <span class="err">{{ @errors['location'] }}</span>
-                        </check>
-                    </div>
-                    <div class="form-group">
-                        <label>Office Hours:</label>
-                        <div class="form-check time-pickers">
-                            <div class="md-form md-outline form-inline">
-                                <input class="form-check-input" type="checkbox"
-                                       value="mon" id="mon"
-                                       name="office-hrs[]">
-                                <label class="form-check-label" for="mon">
-                                    Mon &nbsp;
-                                </label>
-                                <input type="time"  class="form-control" placeholder="Select time">
-                                <p>&nbsp; - &nbsp; </p>
-                                <input type="time"   class="form-control" placeholder="Select time">
-                            </div>
-                        </div>
-                        <div class="form-check time-pickers">
-
-                            <div class="md-form md-outline form-inline">
-                                <input class="form-check-input" type="checkbox"
-                                       value="tue" id="tue" name="office-hrs[]">
-                                <label class="form-check-label" for="tue">
-                                    Tue &nbsp;
-                                </label>
-                                <input type="time" class="form-control" placeholder="Select time">
-                                <p>&nbsp; - &nbsp; </p>
-                                <input type="time"  class="form-control" placeholder="Select time">
-                            </div>
-                        </div>
-                        <div class="form-check time-pickers">
-
-                            <div class="md-form md-outline form-inline">
-                                <input class="form-check-input" type="checkbox"
-                                       value="wed" id="wed" name="office-hrs[]">
-                                <label class="form-check-label" for="wed">
-                                    Wed &nbsp;
-                                </label>
-                                <input type="time"  class="form-control" placeholder="Select time">
-                                <p>&nbsp; - &nbsp; </p>
-                                <input type="time"   class="form-control" placeholder="Select time">
-                            </div>
-                        </div>
-                        <div class="form-check time-pickers">
-
-                            <div class="md-form md-outline form-inline">
-                                <input class="form-check-input" type="checkbox"
-                                       value="thur" id="thur" name="office-hrs[]">
-                                <label class="form-check-label" for="thur">
-                                    Thur &nbsp;
-                                </label>
-                                <input type="time"  class="form-control" placeholder="Select time">
-                                <p>&nbsp; - &nbsp; </p>
-                                <input type="time"   class="form-control" placeholder="Select time">
-                            </div>
-                        </div>
-                        <div class="form-check time-pickers">
-                            <div class="md-form md-outline form-inline">
-                                <input class="form-check-input" type="checkbox"
-                                       value="fri" id="fri" name="office-hrs[]">
-                                <label class="form-check-label" for="fri">
-                                    Fri &nbsp;
-                                </label>
-                                <input type="time"  class="form-control" placeholder="Select time">
-                                <p>&nbsp; - &nbsp; </p>
-                                <input type="time"   class="form-control" placeholder="Select time">
-                            </div>
-                        </div>
-                        <check if="{{ @errors['office-hrs'] }}">
-                            <span class="err">{{ @errors['office-hrs'] }}</span>
-                        </check>
-                    </div>
-                    <div class="form-group">
                         <label for="email">Instructor e-mail:</label>
                         <input type="text" class="form-control"
                                id="email" name="email" value="{{ @email }}">
@@ -124,184 +48,165 @@
                             <span class="err">{{ @errors['email'] }}</span>
                         </check>
                     </div>
+                    <div class="form-group">
+                        <label for="office">Office location: </label>
+                        <input type="text" class="form-control"
+                               id="office" name="office" value="{{ @office }}">
+                        <check if="{{ @errors['office'] }}">
+                            <span class="err">{{ @errors['office'] }}</span>
+                        </check>
+                    </div>
+                    <div class="form-group">
+                        <label>Office Hours:</label>
+                        <small>(Office hours should be between 7am to 7pm)</small>
+                        <div class="form-check time-pickers">
+                            <div class="md-form md-outline form-inline mb-3">
+
+                                <label class="form-check-label" for="mon">
+                                    Mon &nbsp;
+                                </label>
+                                <input type="time"  min="07:00" max="19:00"class="form-control" id="mon"  name="officeHoursStart[Mon]">
+                                <p>&nbsp; - &nbsp; </p>
+                                <input type="time"  min="07:00" max="19:00"  class="form-control"  name="officeHoursEnd[Mon]">
+
+                            </div>
+                        </div>
+                        <div class="form-check time-pickers">
+
+                            <div class="md-form md-outline form-inline mb-3">
+
+                                <label class="form-check-label" for="tue">
+                                    Tue &nbsp;
+                                </label>
+                                <input type="time"  min="07:00" max="19:00"  class="form-control"id="tue" name="officeHoursStart[Tue]">
+                                <p>&nbsp; - &nbsp; </p>
+                                <input type="time" min="07:00" max="19:00"  class="form-control"   name="officeHoursEnd[Tue]">
+                            </div>
+                        </div>
+                        <div class="form-check time-pickers">
+
+                            <div class="md-form md-outline form-inline mb-3">
+
+                                <label class="form-check-label" for="wed">
+                                    Wed &nbsp;
+                                </label>
+                                <input type="time" min="07:00"  max="19:00"  class="form-control" id="wed"  name="officeHoursStart[Wed]">
+                                <p>&nbsp; - &nbsp; </p>
+                                <input type="time" min="07:00" max="19:00"   class="form-control"   name="officeHoursEnd[Wed]">
+                            </div>
+                        </div>
+                        <div class="form-check time-pickers">
+
+                            <div class="md-form md-outline form-inline mb-3">
+                                <label class="form-check-label" for="thur">
+                                    Thur &nbsp;
+                                </label>
+                                <input type="time" min="07:00" max="19:00"  class="form-control" id="thur"  name="officeHoursStart[Thur]">
+                                <p>&nbsp; - &nbsp; </p>
+                                <input type="time" min="07:00" max="19:00"   class="form-control"   name="officeHoursEnd[Thur]">
+                            </div>
+                        </div>
+                        <div class="form-check time-pickers">
+                            <div class="md-form md-outline form-inline mb-3">
+                                <label class="form-check-label" for="fri">
+                                    Fri &nbsp;
+                                </label>
+                                <input type="time" min="07:00" max="19:00"  class="form-control" id="fri"  name="officeHoursStart[Fri]">
+                                <p>&nbsp; - &nbsp; </p>
+                                <input type="time"  min="07:00" max="19:00"  class="form-control"  name="officeHoursEnd[Fri]">
+
+                            </div>
+                        </div>
+                        <check if="{{ @errors['office-hrs'] }}">
+                            <span class="err">{{ @errors['office-hrs'] }}</span>
+                        </check>
+                    </div>
                 </fieldset>
             </div>
             <div class="col-sm-3">
                 <fieldset class="form-group mt-5">
-                    <legend>Course Information</legend>
-                    <div class = "row">
+                    <h5 class="full-width">
+                        <div class="wrap">Course Information</div>
+                    </h5>
+                    <div class = "row mb-3">
                         <div class="col-sm">
                             <label for="courseprefix">Course Prefix:</label>
                             <select id="courseprefix" name="courseprefix" title="Choose a Course Prefix">
-                                <option selected="selected" value="-1">All prefixes…</option>
-                                <option value="A SIM">A SIM</option>
-                                <option value="AAM">AAM</option>
-                                <option value="ACCT">ACCT</option>
-                                <option value="ACOMP">ACOMP</option>
-                                <option value="AMES">AMES</option>
-                                <option value="ANTH">ANTH</option>
-                                <option value="AP">AP</option>
-                                <option value="ART">ART</option>
-                                <option value="ASTR">ASTR</option>
-                                <option value="ATECH">ATECH</option>
-                                <option value="AVIA">AVIA</option>
-                                <option value="B A">B A</option>
-                                <option value="BASIC">BASIC</option>
-                                <option value="BIOL">BIOL</option>
-                                <option value="BTAC">BTAC</option>
-                                <option value="BUS">BUS</option>
-                                <option value="CARP">CARP</option>
-                                <option value="CHEM">CHEM</option>
-                                <option value="CHIN">CHIN</option>
-                                <option value="CJ">CJ</option>
-                                <option value="CMST">CMST</option>
-                                <option value="COOP">COOP</option>
-                                <option value="CRC">CRC</option>
-                                <option value="CS">CS</option>
-                                <option value="D">D</option>
-                                <option value="D T">D T</option>
-                                <option value="DANCE">DANCE</option>
-                                <option value="DRMA">DRMA</option>
-                                <option value="ECED">ECED</option>
-                                <option value="ECON">ECON</option>
-                                <option value="EDUC">EDUC</option>
-                                <option value="ELL">ELL</option>
-                                <option value="ENGL">ENGL</option>
-                                <option value="ENGR">ENGR</option>
-                                <option value="ENV S">ENV S</option>
-                                <option value="FILM">FILM</option>
-                                <option value="FLT">FLT</option>
-                                <option value="FRCH">FRCH</option>
-                                <option value="GEOG">GEOG</option>
-                                <option value="GEOL">GEOL</option>
-                                <option value="GERM">GERM</option>
-                                <option value="H">H</option>
-                                <option value="H SCI">H SCI</option>
-                                <option value="HIST">HIST</option>
-                                <option value="HL ED">HL ED</option>
-                                <option value="HSC">HSC</option>
-                                <option value="HUMAN">HUMAN</option>
-                                <option value="I E">I E</option>
-                                <option value="IBEST">IBEST</option>
-                                <option value="INDUS">INDUS</option>
-                                <option value="INFO">INFO</option>
-                                <option value="IT">IT</option>
-                                <option value="JAPN">JAPN</option>
-                                <option value="JOURN">JOURN</option>
-                                <option value="MATH">MATH</option>
-                                <option value="MATHJ">MATHJ</option>
-                                <option value="MATHM">MATHM</option>
-                                <option value="MFG">MFG</option>
-                                <option value="MGMT">MGMT</option>
-                                <option value="MTX">MTX</option>
-                                <option value="MUSC">MUSC</option>
-                                <option value="N">N</option>
-                                <option value="N SCI">N SCI</option>
-                                <option value="NATRS">NATRS</option>
-                                <option value="NRS A">NRS A</option>
-                                <option value="NURSE">NURSE</option>
-                                <option value="NUTR">NUTR</option>
-                                <option value="OCEA">OCEA</option>
-                                <option value="OTA">OTA</option>
-                                <option value="P E">P E</option>
-                                <option value="PHIL">PHIL</option>
-                                <option value="PHLEB">PHLEB</option>
-                                <option value="PHOTO">PHOTO</option>
-                                <option value="PHYS">PHYS</option>
-                                <option value="PLA">PLA</option>
-                                <option value="POLS">POLS</option>
-                                <option value="PSYC">PSYC</option>
-                                <option value="PTA">PTA</option>
-                                <option value="READ">READ</option>
-                                <option value="S">S</option>
-                                <option value="S SCI">S SCI</option>
-                                <option value="SOC">SOC</option>
-                                <option value="SPAN">SPAN</option>
-                                <option value="ST SK">ST SK</option>
-                                <option value="TECH">TECH</option>
-                                <option value="TS">TS</option>
-                                <option value="TS-OD">TS-OD</option>
-                                <option value="WELD">WELD</option>
-                                <option value="WST">WST</option>
-                                <option value="WTECH">WTECH</option>
-                                <option value="WWT">WWT</option>
+                                <repeat group="{{@prefix}}" value="{{@selectPre}}">
+                                    <option value="{{@selectPre}}"
+                                    <check if = "{{@prefix==@selectPre}}">
+                                        selected="selected"
+                                    </check>>{{ @selectPre }}
+                                    </option>
+                                </repeat>
                             </select>
-                            <check if="{{ @errors['prefix'] }}">
-                                <span class="err">{{ @errors['prefix'] }}</span>
-                            </check>
                         </div>
                         <div class="col-sm">
-                            <label for="course-item">Item Number:</label>
-                            <input id="course-item" type = "text" class="form-control" placeholder="445" >
+                            <label for="course-item">Class Number:</label>
+                            <input id="course-item" name="course-item" type = "text" class="form-control" placeholder="445" >
                             <check if="{{ @errors['course-item'] }}">
                                 <span class="err">{{ @errors['course-item'] }}</span>
                             </check>
                         </div>
                     </div>
+                    <div class="form-group form-inline">
+                        <input type="checkbox" id="online" name="online" value="online" class="mr-3">
+                        <label for = "online">Online Class</label>
+                    </div>
                     <div class="form-group">
                         <label>Meeting Times:</label>
+                        <small>(Meeting hours should be between 7am to 7pm)</small>
                         <div class="form-check time-pickers">
-                            <div class="md-form md-outline form-inline">
-                                <input class="form-check-input" type="checkbox"
-                                       value="mon" id="monday"
-                                       name="meeting-hrs[]">
+                            <div class="md-form md-outline form-inline mb-3">
                                 <label class="form-check-label" for="monday">
                                     Mon &nbsp;
                                 </label>
-                                <input type="time"  class="form-control" placeholder="Select time">
+                                <input type="time" min="07:00" max="19:00" name="meetingTimesStart[Mon]" class="form-control" id="monday">
                                 <p>&nbsp; - &nbsp; </p>
-                                <input type="time"   class="form-control" placeholder="Select time">
+                                <input type="time" min="07:00" max="19:00"  name="meetingTimesEnd[Mon]"   class="form-control">
                             </div>
                         </div>
                         <div class="form-check time-pickers">
-
-                            <div class="md-form md-outline form-inline">
-                                <input class="form-check-input" type="checkbox"
-                                       value="tue" id="tuesday" name="meeting-hrs[]">
+                            <div class="md-form md-outline form-inline mb-3">
                                 <label class="form-check-label" for="tuesday">
                                     Tue &nbsp;
                                 </label>
-                                <input type="time"  class="form-control" placeholder="Select time">
+                                <input type="time" min="07:00" max="19:00" name="meetingTimesStart[Tue]"  class="form-control" id="tuesday">
                                 <p>&nbsp; - &nbsp; </p>
-                                <input type="time"   class="form-control" placeholder="Select time">
+                                <input type="time" min="07:00" max="19:00"  name="meetingTimesEnd[Tue]"  class="form-control">
                             </div>
                         </div>
                         <div class="form-check  time-pickers">
 
-                            <div class="md-form md-outline form-inline">
-                                <input class="form-check-input" type="checkbox"
-                                       value="wed" id="wednesday" name="meeting-hrs[]">
+                            <div class="md-form md-outline form-inline mb-3">
                                 <label class="form-check-label" for="wednesday">
                                     Wed &nbsp;
                                 </label>
-                                <input type="time"  class="form-control" placeholder="Select time">
+                                <input type="time" min="07:00" max="19:00"  name="meetingTimesStart[Wed]"  class="form-control" id="wednesday">
                                 <p>&nbsp; - &nbsp; </p>
-                                <input type="time"  class="form-control" placeholder="Select time">
+                                <input type="time" min="07:00" max="19:00"  name="meetingTimesEnd[Wed]"  class="form-control">
                             </div>
                         </div>
                         <div class="form-check time-pickers">
-                            <div class="md-form md-outline form-inline">
-                                <input class="form-check-input" type="checkbox"
-                                       value="thur" id="thursday" name="meeting-hrs[]">
+                            <div class="md-form md-outline form-inline mb-3">
                                 <label class="form-check-label" for="thursday">
                                     Thur &nbsp;
                                 </label>
-                                <input type="time"  class="form-control" placeholder="Select time">
+                                <input type="time" min="07:00" max="19:00" name="meetingTimesStart[Thur]"  class="form-control" id="thursday">
                                 <p>&nbsp; - &nbsp; </p>
-                                <input type="time"   class="form-control" placeholder="Select time">
+                                <input type="time"  min="07:00" max="19:00"  name="meetingTimesEnd[Thur]"  class="form-control">
                             </div>
                         </div>
                         <div class="form-check time-pickers">
-                            <div class="md-form md-outline form-inline">
-                                <input class="form-check-input" type="checkbox"
-                                       value="fri" id="friday" name="meeting-hrs[]">
+                            <div class="md-form md-outline form-inline mb-3">
                                 <label class="form-check-label" for="friday">
                                     Fri &nbsp;
                                 </label>
-                                <input type="time"  class="form-control" placeholder="Select time">
+                                <input type="time" min="07:00" max="19:00" name="meetingTimesStart[Fri]"  class="form-control" id="friday">
                                 <p>&nbsp; - &nbsp; </p>
-                                <input type="time"   class="form-control" placeholder="Select time">
+                                <input type="time"  min="07:00" max="19:00" name="meetingTimesEnd[Fri]"  class="form-control">
                             </div>
+
                         </div>
                         <check if="{{ @errors['meeting-hrs'] }}">
                             <span class="err">{{ @errors['meeting-hrs'] }}</span>
@@ -316,16 +221,13 @@
                         </check>
 
                     </div>
-                    <div class="form-group">
-                        <label for="prereqs">Prerequisites:</label>
-                        <input type="text" class="form-control"
-                               id="prereqs" name="prereqs" value="{{ @prereqs }}">
-                    </div>
                 </fieldset>
             </div>
             <div class="col-sm-6">
                 <fieldset class="form-group mt-5">
-                    <legend>Materials</legend>
+                    <h5 class="full-width">
+                        <div class="wrap">Materials</div>
+                    </h5>
                     <div class="form-group" id="textbook-div">
                         <table id = "textbook-table"class="table table-responsive-stack">
                             <tbody id="table-body">
@@ -351,7 +253,7 @@
                             <tr>
                                 <td>
                                     <label class="form-check-label" for="materials0">
-                                        Additional Materials
+                                        Materials
                                     </label>
                                     <input type="text" class="form-control"
                                            id="materials0" name="materials">
@@ -364,16 +266,16 @@
                     </div>
                 </fieldset>
                 <fieldset class="form-group">
-                    <legend>Other</legend>
+                    <h5 class="full-width">
+                        <div class="wrap">Course Policies</div>
+                    </h5>
                     <div class="form-group">
-                        <label for="other">Other information:</label>
-                        <input type="text" class="form-control"
-                               id="other" name="other">
+                        <label for="policies">Course Policies:</label>
+                        <textarea cols = 120 rows = 5 placeholder="ex: Missed exams or assignments, Policies for dress during a lab, etc" name = "policies" id="policies"></textarea>
                     </div>
-
                 </fieldset>
                 <div class="align-content-center">
-                    <button id="submit" type="submit" class="btn btn-primary">Generate</button>
+                    <button id="submit" type="submit" class="btn gen-button">Generate</button>
                 </div>
             </div>
         </div>

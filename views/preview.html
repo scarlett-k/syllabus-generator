@@ -2,13 +2,382 @@
 <html lang="en">
 <head>
     <include href="views/header.html">
-    <title>GRC Syllabus Generator</title>
-</head>
+        <title>GRC Syllabus Generator</title>
+        </head>
 <body>
-<img src="images/logo.png" alt = "GRC Logo" style="float: left;  margin-bottom: 30px; margin-right: 20px" />
+<img src="images/logo.png" alt="GRC Logo" style="float: left;  margin-bottom: 30px; margin-right: 20px"/>
+
 <h1>GRC Syllabus Generator</h1>
 
-<button id="preview">Download Your Syllabus</button>
+<h1>Course Syllabus</h1>
+<div class="preview" id="preview">
+    <p>
+    <h3>Course Information</h3>
+    <p><strong>Course:</strong> {{ @courseTitle }}
+        ({{ @SESSION['syllabus']->getPrefix() }}{{ @SESSION['syllabus']->getCourseNum() }})<br>
+    <strong>Credit Hours:</strong> {{ @creditHours }}<br>
+    <strong>Prerequisites:</strong> {{ @preReq }}<br>
+    <strong>Meeting times:</strong>{{ @SESSION['syllabus']->getMeetingTimes() }}
+    <strong>Class location:</strong> {{ @SESSION['syllabus']->getLocation() }}</p>
+
+    <h3> Instructor Information & Response Times </h3>
+    <p>
+    • <strong>Instructor’s name:</strong> {{ @SESSION['syllabus']->getFirstname() }} {{
+    @SESSION['syllabus']->getLastname() }} <br>
+    • <strong>Office location:</strong> {{ @SESSION['syllabus']->getOffice() }}<br>
+    • <strong>Office hours:</strong> {{ @SESSION['syllabus']->getOfficeHours() }}<br>
+    • <strong>Office phone number:</strong> {{ @SESSION['syllabus']->getPhone() }}<br>
+    • <strong>Email:</strong> {{ @SESSION['syllabus']->getEmail() }} <br><br>
+
+    <h3>Assigned Texts & Required Course Materials</h3>
+    • <b>Required textbooks:</b> {{ @SESSION['syllabus']->getTextbook() }}<br>
+    • <b>ISBN:</b> {{ @SESSION['syllabus']->getISBN() }}<br>
+    • <b>Course Materials:</b> {{ @SESSION['syllabus']->getMaterials() }}<br>
+    </p>
+
+    <h3>Course Description</h3>
+    <p>{{ @basicDesc }}</p>
+
+    <h3>Modality Statement</h3>
+    This course meets during the following days and times:<br> {{ @SESSION['syllabus']->getMeetingTimes() }}
+    </p>
+
+    <h3> Learning Outcomes </h3>
+    <p>Campus-wide outcomes included on the CAR must be indicated on the syllabus verbatim. You
+        may include additional campus-wide outcomes from those on the CAR, but you may not omit
+        any listed on the CAR. Only the definition of the campus wide outcome, not the competencies
+        must be listed. Which assignments will demonstrate each campus-wide learning outcome must
+        also be indicated on the syllabus. An example of this indication follows the definition of the
+        campus wide outcome below, but you may make these indications as you wish.
+        Quantitative and Symbolic Reasoning encompasses abilities necessary for a student to become
+        literate in today’s technological world. Quantitative reasoning begins with basic skills and
+        extends to problem solving. This outcome will be assessed by the course exams and final
+        exam.</p>
+
+    <h5>Program Outcomes</h5>
+    <p>{{ @programOutcomes }}</p>
+
+    <h5> Campus Outcomes</h5>
+    <p>{{ @CampusOutcomes }}</p><br>
+
+    <h3> Course Policies </h3>
+    <p> {{ @SESSION['syllabus']->getPolicies() }} </p>
+
+    <h3>Mandatory Reporter Statement</h3>
+    GRC faculty and staff are mandatory reporters
+    of child abuse and neglect and must report suspected abuse or neglect to the proper
+    authorities.<br>
+    • GRC Student Code of Conduct (https://www.greenriver.edu/students/judicial-programs/)<br>
+    • Student Complaints (https://www.greenriver.edu/students/academics/instructionstudent-complaint-process/)<br><br>
+
+    <h3>Academic Honesty</h3>
+    <p>In academically honest writing or speaking, the student documents their source of
+    information whenever: another person's exact words are quoted; another person's idea,
+    opinion or theory is used through paraphrase; and facts, statistics, or other illustrative
+    materials are borrowed.<br>
+    In order to complete academically honest work, students should: acknowledge all
+    sources according to the method of citation preferred by the instructor; write as much as
+    possible from one's own understanding of the materials and in one's own voice; ask an
+    authority on the subject, such as the instructor who assigned the work; and seek help
+    from academic student services such as the library and/or writing center.<br>
+    Two types of academic dishonesty are plagiarism and cheating. Plagiarism occurs when
+    you submit someone else’s ideas or words as your own. Cutting and/or copying and then
+    pasting items from the internet, like Wikipedia, into your work are examples of
+    plagiarism. Cheating occurs when you copy someone else’s answers or work and submit
+    them as your own. Taking answers from your peer’s or friend’s work or turning in
+    someone else’s work as your own are examples of cheating.<br>
+
+    Instructor should go on to have their own policy that addresses course specific concerns
+    and/or provides examples of plagiarism scenarios.
+    Should I suspect that you have plagiarized, cheated, and/or fabricated, I will talk with you
+    one-on-one. If you are found guilty of academic dishonesty you will receive a zero for the
+        course.</p>
+
+    <h3>Reasonable Accommodations for Religion / Conscience</h3>
+    <p>
+        Reasonable Accommodations for Religion/Conscience: Students who will be
+        absent from course activities due to reasons of faith or conscience may seek reasonable
+        accommodations so that grades are not impacted. Such requests must be made within
+        the first two weeks of the course and should follow the procedures listed under Student
+        Procedures on the College Holiday and Leave Policy website.
+        https://www.greenriver.edu/campus/policies-and-procedures/student-affairs-policies/sa91-college-holiday-leave-policy/.
+        Please note that requests must be made to the office
+        of the Vice President of Student Affairs in addition to your instructor.
+    </p>
+    <h3> Accessibility Statement </h3>
+    Green River College is committed to creating a positive, accessible environment for its students,
+    employees, and visitors. The College continues to increase the accessibility and usability of all
+    college resources to meet the needs of its diverse community.
+    </p>
+    <p>
+    <h3> Accommodation Statement</h3>
+
+    Green River College is committed to providing access to all who visit, work and study on
+    campus. The College will provide reasonable accommodations for individuals with disabilities,
+    with advance notice of need. If you require accommodations, please contact Disability Support
+    Services as soon as possible to determine eligibility and/or request accommodations.
+    Accommodations are determined on a case-by-case basis. Please contact Disability Support by
+    email at dss@greenriver.edu; by phone at 253-833-9111, ext. 2631; TTY 253-288-3359; or in
+    person at the Student Affairs and Success Center, Room 210, to request accommodations. For
+    additional information, please visit www.greenriver.edu/dss.
+    The accommodations authorized on your forms should be discussed with your instructor. All
+    discussions will remain confidential. Accommodations are not provided retroactively, so it is
+    essential to discuss your needs at the beginning of the quarter. Additionally, only
+    accommodations approved by Disability Support Services will be provided. This syllabus is
+    available in alternate formats upon request.
+    </p>
+
+    <h3>Grading Scale</h3>
+    You must have a grading scale that awards final grades in terms of a 4.0 scale. Your scale
+    cannot award a grade more than a 4.0 or less than a 1.0 other than a 0.0. If your program uses
+    a Pass, Satisfactory or No Credit grading scale your scale should reflect this rather than grade
+    points. What follows is an example grading statement and four example grading scales.
+    Grading Statement: Grades will be assigned according to the course grade breakdown (see
+    below). The total points earned as a percentage of the total points possible will determine a
+    student’s final course grade. Points earned will include the aforementioned outcome
+    assessment components as well as class participation, leadership, and group work. The
+    number of points earned will determine the student’s overall average for the quarter. The
+    percentage score will be translated as shown below:
+    <p>
+    <div class="row" id="grades">
+        <div class="col-md-3">
+            <table>
+                <tbody>
+                <tr>
+                    <th>Decimal</th>
+                    <th>%</th>
+                </tr>
+                <tr>
+                    <td>4.0</td>
+                    <td>95</td>
+                </tr>
+                <tr>
+                    <td>3.9</td>
+                    <td>94</td>
+                </tr>
+                <tr>
+                    <td>3.8</td>
+                    <td>93</td>
+                </tr>
+                <tr>
+                    <td>3.7</td>
+                    <td>92</td>
+                </tr>
+                <tr>
+                    <td>3.6</td>
+                    <td>91</td>
+                </tr>
+                <tr>
+                    <td>3.5</td>
+                    <td>90</td>
+                </tr>
+                <tr>
+                    <td>3.4</td>
+                    <td>89</td>
+                </tr>
+                <tr>
+                    <td>3.3</td>
+                    <td>88</td>
+                </tr>
+                <tr>
+                    <td>3.2</td>
+                    <td>87</td>
+                </tr>
+                <tr>
+                    <td>3.1</td>
+                    <td>86</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-3">
+            <table>
+                <tbody>
+                <tr>
+                    <th>Decimal</th>
+                    <th>%</th>
+                </tr>
+                <tr>
+                    <td>3.0</td>
+                    <td>85</td>
+                </tr>
+                <tr>
+                    <td>2.9</td>
+                    <td>84</td>
+                </tr>
+                <tr>
+                    <td>2.8</td>
+                    <td>83</td>
+                </tr>
+                <tr>
+                    <td>2.7</td>
+                    <td>82</td>
+                </tr>
+                <tr>
+                    <td>2.6</td>
+                    <td>81</td>
+                </tr>
+                <tr>
+                    <td>2.5</td>
+                    <td>80</td>
+                </tr>
+                <td>2.4</td>
+                <td>79</td>
+                </tr>
+                <tr>
+                    <td>2.3</td>
+                    <td>78</td>
+                </tr>
+                <tr>
+                    <td>2.2</td>
+                    <td>77</td>
+                </tr>
+                <tr>
+                    <td>2.1</td>
+                    <td>76</td>
+                </tr>
+                <tr>
+                    <td>2.0</td>
+                    <td>75</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-3">
+            <table>
+                <tbody>
+                <tr>
+                    <th>Decimal</th>
+                    <th>%</th>
+                </tr>
+                <tr>
+                <tr>
+                    <td>1.9</td>
+                    <td>74</td>
+                </tr>
+                <tr>
+                    <td>1.8</td>
+                    <td>73</td>
+                </tr>
+                <tr>
+                    <td>1.7</td>
+                    <td>72</td>
+                </tr>
+                <tr>
+                    <td>1.6</td>
+                    <td>71</td>
+                </tr>
+                <tr>
+                    <td>1.5</td>
+                    <td>70</td>
+                </tr>
+                <tr>
+                    <td>1.4</td>
+                    <td>69</td>
+                </tr>
+                <tr>
+                    <td>1.3</td>
+                    <td>68</td>
+                </tr>
+                <tr>
+                    <td>1.2</td>
+                    <td>67</td>
+                </tr>
+                <tr>
+                    <td>1.1</td>
+                    <td>66</td>
+                </tr>
+                <tr>
+                    <td>1.0</td>
+                    <td>65</td>
+                </tr>
+                <tr>
+                    <td>0.0</td>
+                    <td>&lt;65</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div><br>
+    <h3>Course Schedule</h3>
+    Some kind of course schedule should be included to indicate a general idea of when course
+    topics will be covered and assignments are due. The specificity of this schedule is at the
+    discretion of the instructor and it is recommended to include a statement that the schedule is
+    subject to change. The following topics are suggestions for the course schedule:
+    • Daily or weekly schedule of topics to be covered
+    • Due dates for daily assignments such as readings, projects, etc.
+    • Dates for exams, quizzes, papers, and other forms of assessment
+    • Dates of required or recommended special events
+    • Deadlines for Refund, Withdrawal, P/NC scores, etc.
+    </p>
+    <p>
+    <h3> Campus Resources</h3>
+    • Paying for School: Visit the Financial Aid office (http://www.greenriver.edu/studentaffairs/financial-aid.htm) for
+    help with loans, work-study, scholarships, etc.<br>
+    • Succeeding in Class: There are a number of tutoring resources<br>
+    (http://www.greenriver.edu/student-affairs/tutoring-and-resources.htm) available to you
+    on campus including the Writing Center
+    (http://www.greenriver.edu/studentaffairs/tutoring-and-resources/writing-center.htm), the Math Learning Center
+    (https://www.greenriver.edu/students/academics/tutoring-resources/math-learningcenter/) and the Public Speaking
+    Center
+    (https://www.greenriver.edu/students/academics/tutoring-resources/public-speakingcenter/).<br>
+    <!--        Updated 10/24/19-->
+    • Caring for Mind & Body: As a Green River student, you have access to Counseling &
+    Health Services (http://www.greenriver.edu/student-affairs/counseling-and-healthservices.htm) intramural sports,
+    fitness classes, and the Recreation and Athletics
+    Center (https://www.greenriver.edu/students/get-involved/recreation-and-athleticscenter/).<br>
+    • Deciding What’s Next: Get the help you need to transfer successfully at the College
+    Transfer Center (http://www.greenriver.edu/student-affairs/college-transfer-center.htm)
+    or visit the Career and Advising Center
+    (https://www.greenriver.edu/students/academics/career-advising-center/) for help
+    deciding what to do when you finish at Green River.<br>
+    • Meeting Friends: Check out what the office of Diversity, Equity & Inclusion
+    (http://www.greenriver.edu/student-affairs/diversity-equity-and-inclusion.htm) is up to,
+    and also be sure to explore the clubs and organizations
+    (http://www.greenriver.edu/campus-life/clubs-and-organizations.htm) on Campus by
+    visiting the Student Life Office. If you are a veteran or a veteran family, consider
+    connecting with Veterans Services (http://www.greenriver.edu/student-affairs/veteransservices.htm).<br>
+    • Technical Support: Contact the office of eLearning
+    (http://www.greenriver.edu/academics/elearning.htm) for Canvas support or visit the tech
+    support desks in the Holman Library or Tech Center.<br>
+    • Campus Safety: Campus Safety (http://www.greenriver.edu/about-us/campus-safety.htm)
+    provides escorts to and from dark parking lots just give them a ring at 253-833-9111 x
+    2250<br>
+    • Accessing textbooks: Generally you buy your textbooks in the bookstore. The Library
+    (https://libguides.greenriver.edu/textbooks) has additional purchasing, rental, and
+    borrowing options, including the office of Diversity, Equity & Inclusion
+    (http://www.greenriver.edu/student-affairs/diversity-equity-and-inclusion.htm) and books
+    on reserve in the Holman Library.<br>
+    • Getting Support: There are lots of student support organizations on campus including...<br>
+    • TRiO Student Support Services at Green River College serves 200 low-income, first
+    generation students and/or students with disabilities each year. Students who
+    would like more information can reach the TRiO office via email
+    (triodepartment@greenriver.edu) or call (253) 833 – 9111 (ext. 2655).<br>
+    • The Office of Diversity, Equity & Inclusion helps bridge the education gap for
+    historically underserved and underrepresented students. ODEI staff utilize
+    referral services to help guide and direct constituents and provide CAP services
+    to ensure: access, retention, academic and social success of our students.
+    Students may contact us at extension 2803 or e-mail
+    (DBetancourt@greenriver.edu).
+    </p>
+
+    <footer>
+        This document is available in alternative formats to individuals with disabilities by contacting Disability
+        Support Services at 253-833-9111, ext. 2631; TTY 253-288-3359; or by email at dss@greenriver.edu.
+
+        Green River College is an equal opportunity educator and employer. Learn more at
+        www.greenriver.edu/accessibility.</p>
+    </footer>
+
+</div>
+<button id="download" onclick="exportHTML()">Download Your Syllabus</button>
 </body>
 <include href="views/footer.html">
 </html>
+
