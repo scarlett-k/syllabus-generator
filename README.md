@@ -28,3 +28,47 @@ A syllabus class is implemented to hold all form values of the syllabus, and a C
 is implemented to grab required data from an external CSV file.
 ##### Contains full Docblocks for all PHP files and follows PEAR standards.
 Code is thoroughly commented and follows PEAR standards.
+
+
+#### Files included in project and what they do
+## classes/csv.php
+Class that interacts directly with the CSV file provided by the GRC IT Department
+## classes/syllabus.php
+Class that takes the information from the form and inserts them into the syllabus class to be used in the preview page
+
+## controller/controller.php
+Controller class adds data to the hive and holds home and preview functions
+
+## images/logo.png
+GRC Logo
+
+## model/database.php
+Database access - UNUSED FILE
+## model/validate.php
+Data validation - UNUSED FILE
+
+## resources/courses-list-2020.csv
+External CSV file provided by the GRC IT Department
+
+## scripts/form.js
+basic js functionality for form
+## scripts/toDoc.js
+allows word doc download
+
+## styles/styles.css
+basic styling for the form and preview page
+
+## views/footer.html
+footer file
+## views/form.html
+form for instructor to fill out
+## views/header.html
+header file
+## views/preview.html
+page following generate button that displaysthe preview of completed syllabus
+
+## composer.json
+dependency manager
+
+## index.php
+deals with logic for routing
