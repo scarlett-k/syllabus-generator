@@ -1,4 +1,13 @@
 <?php
+/**
+ * Created in PhpStorm
+ * @authors Brian Kiehn, Cody Zipp, Scarlett Kim
+ * @date 5/1/2020
+ * @version 1.0
+ * index.php
+ * team-brian
+ */
+
 //Turn on error reporting
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
