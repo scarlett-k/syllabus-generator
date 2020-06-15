@@ -4,7 +4,7 @@
  * @authors Brian Kiehn, Cody Zipp, Scarlett Kim
  * @date 5/12/2020
  * @version 1.0
- * syllabus.php
+ * syllabus.php - syllabus object that contains user-input
  * team-brian
  */
 
