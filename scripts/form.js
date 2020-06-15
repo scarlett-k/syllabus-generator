@@ -1,3 +1,11 @@
+/**
+ * Created in PhpStorm
+ * @author Scarlett Kim
+ * @date 5/1/2020
+ * @version 1.0
+ * form.js - adding additional textbooks and materials
+ * team-brian
+ */
 var textbookRC;
 var matRC;
 $(document).ready(function () {
